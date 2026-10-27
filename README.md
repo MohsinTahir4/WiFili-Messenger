@@ -5,40 +5,98 @@
 ![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
 ![Chrome](https://img.shields.io/badge/Chrome_Web-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-green.style=for-the-badge)
+![Offline](https://img.shields.io/badge/100%25_Offline-Wi--Fi_LAN-success?style=for-the-badge)
 
-**WiFili Messenger** is a powerful, 100% offline, peer-to-peer messaging, file sharing, and real-time audio/video calling system designed to work seamlessly across **Android, Windows, Linux, and Web Browsers** over local Wi-Fi or Mobile Hotspot networks without needing an internet connection.
+**WiFili Messenger** is a 100% offline, cross-platform, peer-to-peer messaging, file sharing, and real-time audio/video calling application that connects **Android phones, Windows PCs, Linux desktops, and Web Browsers** directly over local Wi-Fi or Mobile Hotspots without needing an internet connection or external servers.
 
 ---
 
-## 🌟 Key Features
+## 🌐 Offline Mesh Architecture
 
-- **💬 Real-Time Messaging & Emojis**: Instant peer-to-peer chat with built-in emoji selection.
-- **📄 High-Speed File Transfer**: Share photos, videos, audio notes, and documents (PDF, DOCX, ZIP) with real-time percentage progress bars (`0% - 100%`).
-- **📞 Audio Calling**: Low-latency, crystal-clear voice calls over UDP with Loudspeaker / Earpiece toggle and ringing alerts.
-- **🎥 Video Calling**: Real-time video calling with upright portrait orientation, front/back camera switching, and local picture-in-picture preview.
-- **💻 Desktop App (Windows & Linux)**: Native Java Swing desktop application (`:desktop` module) for PC & laptop users.
-- **🌐 Web Edition (Chrome / Edge / Firefox)**: Built-in offline Web App ([web/index.html](web/index.html)) powered by an embedded HTTP Web Server.
-- **🔧 Network Diagnostics & Help**: Live IP status detection, active LAN discovery scan, and step-by-step connection troubleshooting guides.
+```mermaid
+graph TD
+    A["📱 Android Phone A<br>(192.168.1.102)"] <-->|Direct Local Wi-Fi| B["📱 Android Phone B<br>(192.168.1.104)"]
+    A <-->|Direct Local Wi-Fi| C["💻 Windows/Linux Desktop<br>(192.168.1.111)"]
+    B <-->|Direct Local Wi-Fi| D["🌐 Web Browser (Chrome/Edge)<br>(192.168.1.105:8080)"]
+    C <-->|Direct Local Wi-Fi| D
+```
+
+---
+
+## ✨ Feature Summary
+
+| Feature | Description |
+| :--- | :--- |
+| **💬 Direct Messaging & Emojis** | Real-time chat with custom emoji selection. |
+| **📄 High-Speed File Transfer** | Share photos, videos, audio notes, and documents (PDF, DOCX, ZIP) with percentage progress bars (`0% - 100%`). |
+| **📞 Audio Calling** | Low-latency 16kHz PCM audio calls over UDP with Loudspeaker & Earpiece toggle. |
+| **🎥 Video Calling** | Upright portrait video calling with front/back camera switching and local picture-in-picture preview. |
+| **💻 Desktop App (Windows & Linux)** | Native Java Swing GUI app (`:desktop` module) matching the web design. |
+| **🌐 Web Browser Edition** | HTML5 Web App ([web/index.html](web/index.html)) powered by an embedded HTTP Web Server. |
+| **🔧 Connection Diagnostics** | Active IP status detection, network discovery scan, and step-by-step troubleshooting guides. |
+
+---
+
+## 🖥️ Screenshots & User Interface
+
+### 1. Android App
+![Android Chat & Calls](app/src/main/res/drawable/ic_launcher_chat.xml)
+- **Top Bar**: Connected SSID & User Name.
+- **Header**: One-tap Audio Call (`📞`) and Video Call (`🎥`) buttons.
+- **Message Timeline**: Sent/received bubbles, time stamps (`HH:mm`), checkmarks (`✓✓`), and file progress bars.
+
+### 2. Desktop App (Windows & Linux)
+- **Dark/Indigo Theme**: Custom slate theme matching Web Edition.
+- **Sidebar**: Real-time LAN user search (`🔍`) with online status badges (`🟢 Online`).
+- **Call Window**: Fullscreen video stream, mute microphone, and hangup controls.
+
+### 3. Web Edition (Chrome, Edge, Firefox, Safari)
+- **Offline Web Interface**: Open `index.html` or `http://localhost:8080` in Chrome/Edge.
+- **Responsive Layout**: Works on desktops, laptops, tablets, and phones.
 
 ---
 
 ## 🏗️ Technical Architecture & Network Ports
 
-| Feature | Protocol | Port | Description |
-| :--- | :--- | :--- | :--- |
-| **Peer Discovery** | `UDP Broadcast` | `45454` | LAN subnet broadcast announcement (`LANCHAT\|id\|name`) |
-| **Messaging & Files** | `TCP Sockets` | `45455` | Reliable TCP sockets for chat messages and media files |
-| **Audio Calling** | `UDP Stream` | `45457` | 16kHz PCM audio streaming with non-blocking packets |
-| **Video Calling** | `UDP Stream` | `45458` | Compressed YUV JPEG video frame streaming |
-| **Web Server** | `HTTP` | `8080` | Embedded HTTP web server for web browser access |
+| Protocol | Port | Purpose |
+| :--- | :--- | :--- |
+| **UDP Broadcast** | `45454` | LAN Subnet Peer Discovery (`LANCHAT\|id\|name`) |
+| **TCP Sockets** | `45455` | Text Messages & File Transfer Streams |
+| **UDP Stream** | `45457` | Non-blocking 16kHz PCM Audio Calling |
+| **UDP Stream** | `45458` | YUV JPEG Video Frame Calling |
+| **HTTP Server** | `8080` | Embedded Web Server for Chrome/Edge access |
 
 ---
 
-## 🚀 How to Run & Build
+## 📶 How to Increase Wi-Fi Range with a Good Router
 
-### 1. Android App (`:app`)
-Open the project in **Android Studio** and click **Run**, or build via terminal:
+To get maximum range and coverage for WiFili Messenger across large homes, offices, or outdoor areas, follow these recommendations:
+
+```mermaid
+graph LR
+    Sub1["📡 Central Router Location<br>(Elevated 2m+)"] --> Coverage1["🟢 2.4 GHz Band<br>(Long Range / Through Walls)"]
+    Sub1 --> Coverage2["⚡ 5.0 GHz Band<br>(Ultra High Speed)"]
+    Sub1 --> Mesh["📶 Wi-Fi Mesh Node<br>(TP-Link Deco / Netgear Orbi)"]
+```
+
+### 1. Optimal Router Placement
+- **Elevate the Router**: Place your Wi-Fi router in a central, elevated position (at least 1.5–2 meters above the floor).
+- **Avoid Obstacles**: Keep the router away from thick concrete walls, metal cabinets, mirrors, and electronic appliances (microwaves, cordless phones).
+
+### 2. Choose the Right Wi-Fi Band
+- **2.4 GHz Band**: Use 2.4 GHz for **long-range coverage** through multiple walls and across larger distances.
+- **5 GHz Band**: Use 5 GHz for **ultra-fast video calling and large file transfers** when devices are in the same room or close by.
+
+### 3. Wi-Fi Range Extenders & Mesh Routers
+- **Wi-Fi Mesh Systems**: Use Mesh Wi-Fi routers (e.g., TP-Link Deco, Netgear Orbi, ASUS AiMesh) to create a seamless, high-speed Wi-Fi coverage zone across multiple floors.
+- **Mobile Hotspot**: When outdoors or without a router, turn on **Mobile Hotspot** on one phone. Other phones and laptops connect to it for instant 100% offline coverage!
+
+---
+
+## 🚀 How to Build & Run
+
+### 1. Android App
+Build and install via Android Studio or Terminal:
 ```bash
 ./gradlew :app:assembleDebug
 ```
@@ -68,34 +126,20 @@ Open `http://localhost:8080` or `http://<your-ip>:8080` in Chrome/Edge!
 
 ---
 
-## 📤 How to Upload to Your GitHub Account
+## 📤 How to Upload & Push to Your GitHub Account
 
-Follow these steps to upload this repository to your GitHub account:
-
-### Step 1: Create a Repository on GitHub
-1. Go to [GitHub New Repository](https://github.com/new).
-2. Enter Repository Name: `WiFili-Messenger` (or `LanChat`).
-3. Set visibility to **Public** or **Private**.
-4. Leave "Add a README file" **unchecked** (since we already have a README).
-5. Click **Create repository**.
-
-### Step 2: Push Local Code to GitHub
-Open Command Prompt or Terminal in the project root folder and run:
+### Step 1: Link Your GitHub Repository
+1. Create a new repository on [GitHub](https://github.com/new) named `WiFili-Messenger`.
+2. Open terminal in the project directory and run:
 
 ```bash
-# 1. Add all project files
-git add .
-
-# 2. Create initial commit
-git commit -m "Initial commit of WiFili Messenger - Android, Desktop & Web"
-
-# 3. Rename branch to main
+# 1. Rename branch to main
 git branch -M main
 
-# 4. Link your GitHub repository (replace URL with your GitHub repo URL)
+# 2. Add your GitHub repository remote URL
 git remote add origin https://github.com/YOUR_USERNAME/WiFili-Messenger.git
 
-# 5. Push code to GitHub
+# 3. Push code to GitHub
 git push -u origin main
 ```
 
@@ -103,14 +147,14 @@ git push -u origin main
 
 ## 🔄 How to Push Future Updates to GitHub
 
-Whenever you make new changes or updates to the project, run these 3 simple commands to update GitHub:
+Whenever you make future updates to the project, run these 3 simple commands in your terminal:
 
 ```bash
-# 1. Stage all new and modified files
+# 1. Stage all changes
 git add .
 
-# 2. Commit changes with a description
-git commit -m "Updated features and UI fixes"
+# 2. Commit changes
+git commit -m "Updated features and UI enhancements"
 
 # 3. Push updates to GitHub
 git push
@@ -119,4 +163,4 @@ git push
 ---
 
 ## 📄 License
-This project is open-source under the **MIT License**.
+This project is released under the **MIT License**.
