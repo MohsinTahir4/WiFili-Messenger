@@ -37,25 +37,6 @@ graph TD
 
 ---
 
-## 🖥️ Screenshots & User Interface
-
-### 1. Android App
-![Android Chat & Calls](app/src/main/res/drawable/ic_launcher_chat.xml)
-- **Top Bar**: Connected SSID & User Name.
-- **Header**: One-tap Audio Call (`📞`) and Video Call (`🎥`) buttons.
-- **Message Timeline**: Sent/received bubbles, time stamps (`HH:mm`), checkmarks (`✓✓`), and file progress bars.
-
-### 2. Desktop App (Windows & Linux)
-- **Dark/Indigo Theme**: Custom slate theme matching Web Edition.
-- **Sidebar**: Real-time LAN user search (`🔍`) with online status badges (`🟢 Online`).
-- **Call Window**: Fullscreen video stream, mute microphone, and hangup controls.
-
-### 3. Web Edition (Chrome, Edge, Firefox, Safari)
-- **Offline Web Interface**: Open `index.html` or `http://localhost:8080` in Chrome/Edge.
-- **Responsive Layout**: Works on desktops, laptops, tablets, and phones.
-
----
-
 ## 🏗️ Technical Architecture & Network Ports
 
 | Protocol | Port | Purpose |
@@ -70,7 +51,7 @@ graph TD
 
 ## 📶 How to Increase Wi-Fi Range with a Good Router
 
-To get maximum range and coverage for WiFili Messenger across large homes, offices, or outdoor areas, follow these recommendations:
+To get maximum range and coverage for WiFili Messenger across large homes, offices, or outdoor areas:
 
 ```mermaid
 graph LR
@@ -79,17 +60,34 @@ graph LR
     Sub1 --> Mesh["📶 Wi-Fi Mesh Node<br>(TP-Link Deco / Netgear Orbi)"]
 ```
 
-### 1. Optimal Router Placement
-- **Elevate the Router**: Place your Wi-Fi router in a central, elevated position (at least 1.5–2 meters above the floor).
-- **Avoid Obstacles**: Keep the router away from thick concrete walls, metal cabinets, mirrors, and electronic appliances (microwaves, cordless phones).
+1. **Optimal Router Placement**: Place your Wi-Fi router in a central, elevated position (at least 1.5–2 meters high) away from thick concrete walls and metal objects.
+2. **Wi-Fi Band Selection**: Use **2.4 GHz** for long range through walls, and **5.0 GHz** for ultra-fast video calling and large file transfers.
+3. **Mesh Systems**: Use Mesh Wi-Fi routers (TP-Link Deco, Netgear Orbi, or ASUS Mesh) for seamless multi-story coverage.
+4. **Mobile Hotspot**: Turn on Mobile Hotspot on one phone when outdoors; all other phones and laptops connect directly.
 
-### 2. Choose the Right Wi-Fi Band
-- **2.4 GHz Band**: Use 2.4 GHz for **long-range coverage** through multiple walls and across larger distances.
-- **5 GHz Band**: Use 5 GHz for **ultra-fast video calling and large file transfers** when devices are in the same room or close by.
+---
 
-### 3. Wi-Fi Range Extenders & Mesh Routers
-- **Wi-Fi Mesh Systems**: Use Mesh Wi-Fi routers (e.g., TP-Link Deco, Netgear Orbi, ASUS AiMesh) to create a seamless, high-speed Wi-Fi coverage zone across multiple floors.
-- **Mobile Hotspot**: When outdoors or without a router, turn on **Mobile Hotspot** on one phone. Other phones and laptops connect to it for instant 100% offline coverage!
+## 🎬 Demonstration Video Script & Recording Guide
+
+### Scene 1: Introduction (0:00 - 0:30)
+- **Visual**: Show two Android phones, a Windows PC, and a Linux laptop connected to the same Wi-Fi.
+- **Voiceover**: *"Welcome to WiFili Messenger — a 100% offline, cross-platform messaging, file sharing, and real-time audio/video calling application that connects Android, Windows, Linux, and Web Browsers without needing any internet connection!"*
+
+### Scene 2: Peer Discovery (0:30 - 1:00)
+- **Visual**: Tap `⚡ Scan LAN Users` on the phone and click `⚡ Scan LAN Users` on the PC.
+- **Voiceover**: *"With one tap on the Scan button, devices broadcast on UDP port 45454 to discover nearby users on local Wi-Fi. All active users pop up instantly on both screens!"*
+
+### Scene 3: Messaging & File Sharing (1:00 - 1:30)
+- **Visual**: Send a text message with emojis, then pick and send a 10MB video file.
+- **Voiceover**: *"Messages send instantly over TCP sockets. When sharing files, both sender and receiver see a real-time percentage progress bar from 0% to 100%. Upon completion, video files are playable directly in-app."*
+
+### Scene 4: Real-Time Audio & Video Calling (1:30 - 2:15)
+- **Visual**: Tap the Video Call icon `🎥`. The second phone rings with a ringtone and vibration alert. Tap Accept.
+- **Voiceover**: *"WiFili Messenger features non-blocking UDP audio and video calling. Voice streams with zero latency at 16kHz PCM. Video calls render upright in portrait mode with front/back camera switching and loudspeaker toggles."*
+
+### Scene 5: Web Edition & Conclusion (2:15 - 3:00)
+- **Visual**: Double-click `run-web.bat` on Windows or `./run-web.sh` on Linux to launch Chrome at `http://localhost:8080`.
+- **Voiceover**: *"Need to connect from any browser? Double-click `run-web.bat` or `./run-web.sh` to launch the Web Edition in Chrome! WiFili Messenger is open-source and available on GitHub."*
 
 ---
 

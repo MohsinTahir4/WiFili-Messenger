@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WiFili Messenger - Complete Project Guide & Video Script</title>
+    <style>
+        @media print {
+            body { background: white !important; color: black !important; }
+            .no-print { display: none !important; }
+            .page-break { page-break-before: always; }
+        }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: #f8fafc;
+        }
+        .container {
+            background: white;
+            padding: 48px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        h1 { color: #0f172a; font-size: 28px; border-bottom: 3px solid #1e65f3; padding-bottom: 12px; margin-bottom: 24px; }
+        h2 { color: #1e65f3; font-size: 20px; margin-top: 32px; margin-bottom: 12px; border-bottom: 1px solid #e2e8f0; padding-bottom: 6px; }
+        h3 { color: #334155; font-size: 16px; margin-top: 20px; }
+        table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+        th, td { border: 1px solid #cbd5e1; padding: 10px 14px; text-align: left; font-size: 14px; }
+        th { background: #f1f5f9; color: #0f172a; font-weight: 700; }
+        .badge { background: #1e65f3; color: white; padding: 4px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; display: inline-block; margin-right: 6px; }
+        .box { background: #f1f5f9; border-left: 4px solid #1e65f3; padding: 16px; border-radius: 8px; margin: 16px 0; font-size: 14px; }
+        .scene { background: #0f172a; color: white; padding: 16px; border-radius: 10px; margin: 16px 0; }
+        .scene h4 { color: #38bdf8; margin-bottom: 6px; }
+        code { background: #e2e8f0; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 13px; }
+        .btn-print {
+            background: #1e65f3; color: white; border: none; padding: 12px 24px; font-weight: bold; border-radius: 8px; cursor: pointer; float: right; font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button class="btn-print no-print" onclick="window.print()">📄 Save / Export as PDF (Ctrl+P)</button>
+        <h1>📶 WiFili Messenger (LanChat) - Complete Guide</h1>
+
+        <div>
+            <span class="badge">100% Offline</span>
+            <span class="badge">Android 14+</span>
+            <span class="badge">Windows &amp; Linux</span>
+            <span class="badge">Chrome Web Edition</span>
+        </div>
+
+        <h2>1. Executive Summary</h2>
+        <p>WiFili Messenger is an enterprise-grade, 100% offline, peer-to-peer messaging, high-speed file sharing, and real-time audio/video calling application. It operates entirely over local Wi-Fi router networks or device Mobile Hotspots without needing an internet connection, cloud databases, or third-party servers.</p>
+
+        <h2>2. Cross-Platform Capabilities</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Platform</th>
+                    <th>Text &amp; Emojis</th>
+                    <th>File Sharing (0-100%)</th>
+                    <th>Audio Calling</th>
+                    <th>Video Calling</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Android App</strong></td>
+                    <td>✅ Supported</td>
+                    <td>✅ Supported</td>
+                    <td>✅ Supported</td>
+                    <td>✅ Supported</td>
+                </tr>
+                <tr>
+                    <td><strong>Windows Desktop</strong></td>
+                    <td>✅ Supported</td>
+                    <td>✅ Supported</td>
+                    <td>✅ Supported</td>
+                    <td>✅ Supported</td>
+                </tr>
+                <tr>
+                    <td><strong>Linux Desktop</strong></td>
+                    <td>✅ Supported</td>
+                    <td>✅ Supported</td>
+                    <td>✅ Supported</td>
+                    <td>✅ Supported</td>
+                </tr>
+                <tr>
+                    <td><strong>Chrome / Web Edition</strong></td>
+                    <td>✅ Supported</td>
+                    <td>✅ Supported</td>
+                    <td>✅ Supported</td>
+                    <td>✅ Supported</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>3. Network Ports &amp; Socket Architecture</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Protocol</th>
+                    <th>Port</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>UDP Broadcast</td>
+                    <td>45454</td>
+                    <td>Subnet discovery packet announcements</td>
+                </tr>
+                <tr>
+                    <td>TCP Sockets</td>
+                    <td>45455</td>
+                    <td>Text messaging &amp; file transfer streams</td>
+                </tr>
+                <tr>
+                    <td>UDP Stream</td>
+                    <td>45457</td>
+                    <td>16kHz PCM zero-latency voice calling</td>
+                </tr>
+                <tr>
+                    <td>UDP Stream</td>
+                    <td>45458</td>
+                    <td>YUV JPEG video frame calling</td>
+                </tr>
+                <tr>
+                    <td>HTTP Server</td>
+                    <td>8080</td>
+                    <td>Embedded Web Server for Chrome/Edge access</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>4. Wi-Fi Range Optimization Guide</h2>
+        <div class="box">
+            <strong>Key Tips to Maximize Wi-Fi Range:</strong>
+            <ul>
+                <li><strong>Router Placement:</strong> Place your Wi-Fi router in a central, elevated position (at least 1.5–2 meters high) away from thick concrete walls and metal objects.</li>
+                <li><strong>Wi-Fi Band Selection:</strong> Use <strong>2.4 GHz</strong> for long range through walls, and <strong>5.0 GHz</strong> for ultra-fast video calling and large file transfers.</li>
+                <li><strong>Mesh Wi-Fi Systems:</strong> Use Mesh Wi-Fi routers (TP-Link Deco, Netgear Orbi, or ASUS Mesh) for seamless multi-story coverage.</li>
+                <li><strong>Mobile Hotspot:</strong> Turn on Mobile Hotspot on one phone when outdoors; all other phones and laptops connect directly.</li>
+            </ul>
+        </div>
+
+        <div class="page-break"></div>
+
+        <h2>5. Demonstration Video Script</h2>
+
+        <div class="scene">
+            <h4>🎬 Scene 1: Introduction (0:00 - 0:30)</h4>
+            <p><strong>Visual:</strong> Show two Android phones, a Windows PC, and a Linux laptop connected to the same Wi-Fi.</p>
+            <p><strong>Voiceover:</strong> "Welcome to WiFili Messenger — a 100% offline, cross-platform messaging, file sharing, and real-time audio/video calling application that connects Android, Windows, Linux, and Web Browsers without needing any internet connection!"</p>
+        </div>
+
+        <div class="scene">
+            <h4>🎬 Scene 2: Peer Discovery (0:30 - 1:00)</h4>
+            <p><strong>Visual:</strong> Tap 'Scan LAN Users' on the phone and click 'Scan LAN Users' on the PC.</p>
+            <p><strong>Voiceover:</strong> "With one tap on the Scan button, devices broadcast on UDP port 45454 to discover nearby users on local Wi-Fi. All active users pop up instantly on both screens!"</p>
+        </div>
+
+        <div class="scene">
+            <h4>🎬 Scene 3: Messaging &amp; File Sharing (1:00 - 1:30)</h4>
+            <p><strong>Visual:</strong> Send a text message with emojis, then pick and send a 10MB video file.</p>
+            <p><strong>Voiceover:</strong> "Messages send instantly over TCP sockets. When sharing files, both sender and receiver see a real-time percentage progress bar from 0% to 100%. Upon completion, video files are playable directly in-app."</p>
+        </div>
+
+        <div class="scene">
+            <h4>🎬 Scene 4: Real-Time Audio &amp; Video Calling (1:30 - 2:15)</h4>
+            <p><strong>Visual:</strong> Tap the Video Call icon. The second phone rings with a ringtone and vibration alert. Tap Accept.</p>
+            <p><strong>Voiceover:</strong> "WiFili Messenger features non-blocking UDP audio and video calling. Voice streams with zero latency at 16kHz PCM. Video calls render upright in portrait mode with front/back camera switching and loudspeaker toggles."</p>
+        </div>
+
+        <div class="scene">
+            <h4>🎬 Scene 5: Web Edition &amp; Conclusion (2:15 - 3:00)</h4>
+            <p><strong>Visual:</strong> Double-click run-web.bat on Windows or ./run-web.sh on Linux to launch Chrome at http://localhost:8080.</p>
+            <p><strong>Voiceover:</strong> "Need to connect from any browser? Double-click run-web.bat or ./run-web.sh to launch the Web Edition in Chrome! WiFili Messenger is open-source and available on GitHub."</p>
+        </div>
+
+        <h2>6. GitHub Setup Commands</h2>
+        <div class="box">
+            <code>git add .</code><br>
+            <code>git commit -m "Updated WiFili Messenger features"</code><br>
+            <code>git push -u origin main</code>
+        </div>
+    </div>
+</body>
+</html>
