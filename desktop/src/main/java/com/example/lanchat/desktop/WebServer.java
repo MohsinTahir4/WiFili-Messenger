@@ -8,6 +8,7 @@ import java.awt.Desktop;
 import java.io.*;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
+import java.net.ServerSocket;
 import java.net.URI;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
@@ -15,7 +16,6 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class WebServer {
 
-    private static final int WEB_PORT = 8080;
     private static final List<String> messageHistory = new CopyOnWriteArrayList<>();
 
     public static void main(String[] args) {
@@ -23,7 +23,8 @@ public class WebServer {
             DesktopLanManager lanManager = DesktopLanManager.getInstance();
             lanManager.start();
 
-            HttpServer server = HttpServer.create(new InetSocketAddress(WEB_PORT), 0);
+            int activePort = findAvailablePort(8080);
+            HttpServer server = HttpServer.create(new InetSocketAddress(activePort), 0);
 
             // Serve HTML Web Interface
             server.createContext("/", new StaticFileHandler());
@@ -39,20 +40,30 @@ public class WebServer {
             String localIp = getLocalIp();
             System.out.println("====================================================");
             System.out.println("🚀 WiFili Messenger Web Server Running!");
-            System.out.println("👉 Open in Chrome/Edge/Firefox (Local PC): http://localhost:" + WEB_PORT);
-            System.out.println("👉 Open from other phones/PCs on Wi-Fi: http://" + localIp + ":" + WEB_PORT);
+            System.out.println("👉 Open in Chrome/Edge/Firefox (Local PC): http://localhost:" + activePort);
+            System.out.println("👉 Open from other phones/PCs on Wi-Fi: http://" + localIp + ":" + activePort);
             System.out.println("====================================================");
 
             // Try to open Chrome / Default browser automatically
             try {
                 if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
-                    Desktop.getDesktop().browse(new URI("http://localhost:" + WEB_PORT));
+                    Desktop.getDesktop().browse(new URI("http://localhost:" + activePort));
                 }
             } catch (Exception ignored) {}
 
         } catch (Exception e) {
             System.err.println("Failed to start Web Server: " + e.getMessage());
         }
+    }
+
+    private static int findAvailablePort(int defaultPort) {
+        int[] portsToTry = {defaultPort, 8081, 8082, 8085, 8088, 9090, 0};
+        for (int p : portsToTry) {
+            try (ServerSocket ss = new ServerSocket(p)) {
+                return ss.getLocalPort();
+            } catch (Exception ignored) {}
+        }
+        return defaultPort;
     }
 
     private static String getLocalIp() {
