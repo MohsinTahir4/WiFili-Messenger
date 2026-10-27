@@ -1,0 +1,29 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+application {
+    mainClass = 'com.example.lanchat.desktop.DesktopMain'
+}
+
+jar {
+    manifest {
+        attributes(
+            'Main-Class': 'com.example.lanchat.desktop.DesktopMain',
+            'Implementation-Title': 'LanChat Desktop',
+            'Implementation-Version': '1.0'
+        )
+    }
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    } {
+        exclude 'META-INF/*.RSA', 'META-INF/*.SF', 'META-INF/*.DSA'
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
