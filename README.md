@@ -10,29 +10,28 @@
 
 ---
 
-## 📥 Direct Downloads & Releases (All-in-One Packages)
+## 📥 Direct Downloads & Releases (Complete Packages)
 
-| Platform | Direct Download Link | Description | File Format | File Size |
+| Device / Platform | Direct Download Link | Description & Included Files | File Format | File Size |
 | :--- | :--- | :--- | :--- | :--- |
-| **📱 Android Smartphone App** | [📥 Download Android App (.apk)](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Android.apk) | Ready-to-install APK for all Android smartphones | `.apk` | ~6.0 MB |
-| **💻 Master PC & Web Package** | [📥 Download Master PC Package (.zip)](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Complete-Package.zip) | **Complete PC Package**: Contains 1-Click Desktop & Web Launchers + JAR | `.zip` | ~49 KB |
-| **💻 Standalone Executable JAR** | [📥 Download Desktop JAR](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Desktop.jar) | Universal Executable Java App for Windows, Linux & Mac | `.jar` | ~45 KB |
+| **📱 Android Smartphone** | [📥 Download WiFili-Messenger-Android.apk](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Android.apk) | **Android App**: Ready-to-install APK for all Android smartphones. | `.apk` | ~6.0 MB |
+| **💻 PC, Laptop, Windows, Linux & Web** | [📥 Download WiFili-Messenger-Complete-Package.zip](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Complete-Package.zip) | **Master All-in-One PC Package**: Contains Desktop App, Web Edition, 1-Click Launchers, and **README-Instructions.txt**! | `.zip` | ~49 KB |
 
 ---
 
-### 📖 Step-by-Step Quick Start Guide for PC & Phone Users
+### 📖 Simple Guide: How to Download & Use
 
-#### 📱 1. For Android Smartphones (`.apk`):
-1. Click **`[📥 Download Android App (.apk)]`** above on your phone.
-2. Open the downloaded `.apk` file, allow *"Install unknown apps"*, and tap **Install**.
-3. Open **WiFili Messenger** and tap **`⚡ Scan LAN Users`** to connect!
+#### 💻 For PC & Laptop Users (`WiFili-Messenger-Complete-Package.zip`):
+1. Click **`[📥 Download WiFili-Messenger-Complete-Package.zip]`** above.
+2. Extract the downloaded ZIP folder on your computer.
+3. Open the folder and read **`README-Instructions.txt`** for step-by-step instructions.
+4. **To open Desktop App**: Double-click **`1-Click-Start-Desktop-App.bat`**.
+5. **To open Web Edition in Chrome/Edge**: Double-click **`1-Click-Start-Web-Browser-App.bat`**.
 
-#### 💻 2. For Windows PCs & Laptops (`.zip`):
-1. Click **`[📥 Download Master PC Package (.zip)]`** above on your computer.
-2. Extract the downloaded ZIP folder.
-3. **To open Desktop App**: Double-click **`1-Click-Start-Desktop-App.bat`**.
-4. **To open Web Edition in Chrome/Edge**: Double-click **`1-Click-Start-Web-Browser-App.bat`**.
-*(Note: Windows PCs require Java 17 or higher installed. If Java is missing on your PC, double-clicking the script automatically opens the free official Java installer page at https://adoptium.net)*
+#### 📱 For Android Smartphone Users (`.apk`):
+1. Click **`[📥 Download WiFili-Messenger-Android.apk]`** on your phone.
+2. Open the downloaded `.apk` file and tap **Install**.
+3. Launch **WiFili Messenger** and tap **`⚡ Scan LAN Users`** to start chatting!
 
 ---
 
