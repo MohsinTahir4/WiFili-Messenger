@@ -12,11 +12,35 @@
 
 ## 📥 Direct Downloads & Releases
 
-| Platform | Direct Download Link | Description | File Format |
-| :--- | :--- | :--- | :--- |
-| **📱 Android App** | [📥 Download WiFili-Messenger-Android.apk](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Android.apk) | Ready-to-install Android APK | `.apk` (~12 MB) |
-| **💻 Windows & Linux Desktop** | [📥 Download WiFili-Messenger-Desktop.jar](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Desktop.jar) | Standalone Executable Java JAR | `.jar` (~8 MB) |
-| **🌐 Web Server Scripts** | [📥 Download run-web.bat](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/run-web.bat) / [run-web.sh](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/run-web.sh) | Web Server Launchers for Chrome/Edge | `.bat` / `.sh` |
+| Platform | Direct Download Link | Description | File Format | File Size |
+| :--- | :--- | :--- | :--- | :--- |
+| **📱 Android App** | [📥 Download WiFili-Messenger-Android.apk](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Android.apk) | Ready-to-install Android APK | `.apk` | ~6.0 MB |
+| **💻 Windows & Linux Desktop** | [📥 Download WiFili-Messenger-Desktop.jar](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Desktop.jar) | Standalone Executable Java JAR | `.jar` | ~38 KB |
+| **🌐 Web Server Scripts** | [📥 Download run-web.bat](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/run-web.bat) / [run-web.sh](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/run-web.sh) | Web Server Launchers for Chrome/Edge | `.bat` / `.sh` | ~1 KB |
+
+---
+
+### 📖 Step-by-Step Guide: How to Download & Use Each File
+
+#### 1. 📱 How to Download & Install the Android App (`.apk`)
+1. Click **`[📥 Download WiFili-Messenger-Android.apk]`** above using your phone's browser.
+2. Once downloaded, tap the notification or file to open it.
+3. If Android displays *"Install unknown apps"*, tap **Settings** and enable **"Allow from this source"**.
+4. Tap **Install** and launch **WiFili Messenger**!
+
+#### 2. 💻 How to Download & Run the Desktop App (`.jar`)
+1. Click **`[📥 Download WiFili-Messenger-Desktop.jar]`** above on your Windows or Linux PC.
+2. Ensure **Java 17+** is installed on your system.
+3. **Windows**: Double-click `WiFili-Messenger-Desktop.jar` to launch the application.
+4. **Linux / Terminal**: Open terminal in the download folder and run:
+   ```bash
+   java -jar WiFili-Messenger-Desktop.jar
+   ```
+
+#### 3. 🌐 How to Download & Run the Web Edition (`run-web.bat` / `run-web.sh`)
+1. Download **`run-web.bat`** (Windows) or **`run-web.sh`** (Linux).
+2. Double-click **`run-web.bat`** on Windows (or run `./run-web.sh` on Linux).
+3. Chrome or Microsoft Edge will open automatically at **`http://localhost:8080`**!
 
 ---
 
@@ -33,11 +57,6 @@ The **WiFili Android App** features a modern WhatsApp/Telegram-style user interf
 | **🎥 Video Calling** | Upright portrait video calling with front/back camera switching and local picture-in-picture preview. |
 | **🎬 Video Player** | In-app video player to preview received videos directly. |
 
-### How to Use on Android:
-1. Connect your phone to local Wi-Fi, or turn on **Mobile Hotspot**.
-2. Tap **`⚡ Scan LAN Users`** on the action bar to discover nearby connected devices.
-3. Tap any user from the list to start chatting, sending files, or starting an audio/video call!
-
 ---
 
 ## 💻 Windows & Linux Desktop App Guide
@@ -51,12 +70,6 @@ The **WiFili Desktop App** is a native Java Swing application (`:desktop` module
 | **💬 PC Messaging** | Full desktop keyboard chat with custom emoji picker and file attachment dialogs. |
 | **📞 Desktop Calls** | Complete audio & video call modal windows with live video preview, mute microphone, and hangup buttons. |
 
-### How to Use on Desktop (Windows & Linux):
-1. Connect your PC/laptop to the same Wi-Fi network as your phones.
-2. **Windows**: Double-click `run-desktop.bat`.
-3. **Linux**: Open terminal and run `./run-desktop.sh`.
-4. Click **`⚡ Scan LAN Users`**, pick a user on the left, and chat or call offline!
-
 ---
 
 ## 🌐 Web Browser Edition Guide
@@ -69,12 +82,6 @@ The **WiFili Web Edition** runs locally in **Chrome, Edge, Firefox, or Safari** 
 | **⚡ Zero Installation** | Runs instantly inside any web browser without installing additional software. |
 | **🎨 Dark & Light Theme** | Toggle between dark and light themes with one click. |
 | **🔄 Live Peer Polling** | Automatically polls `/api/peers` every 2 seconds to list online Wi-Fi users. |
-
-### How to Use Web Edition:
-1. Connect your computer to local Wi-Fi.
-2. **Windows**: Double-click `run-web.bat`.
-3. **Linux**: Open terminal and run `./run-web.sh`.
-4. Open **`http://localhost:8080`** in Chrome or Edge to access the web messenger!
 
 ---
 
