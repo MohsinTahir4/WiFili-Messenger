@@ -10,25 +10,37 @@
 
 ---
 
-## 📥 Direct Downloads & Releases (Complete Applications)
+## 📥 Direct Downloads & Releases (Dedicated Platform Packages)
 
-| Platform | Direct Download Link | Description & Included Files | File Format | File Size |
-| :--- | :--- | :--- | :--- | :--- |
-| **📱 Android Smartphone App** | [📥 Download WiFili-Messenger-Android.apk](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Android.apk) | **Complete Android App**: Native APK for all Android smartphones. | `.apk` | ~6.0 MB |
-| **💻 Master PC & Web Package** | [📥 Download WiFili-Messenger-Complete-Package.zip](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Complete-Package.zip) | **Complete PC & Web Application**: Contains Desktop App, Web Edition, Launchers, and **3 Instruction Files** (`INSTRUCTIONS-WINDOWS.txt`, `INSTRUCTIONS-LINUX.txt`, `INSTRUCTIONS-WEB.txt`)! | `.zip` | ~50 KB |
-
-> 💡 **Why is the PC Package only ~50 KB?**
-> WiFili Messenger uses optimized high-performance Java bytecode (`.jar`). Unlike heavy, bloated 200MB web apps, Java apps are lightweight, fast, and consume minimal memory while providing 100% full offline chat, file transfer, and video calling!
+| Platform / Device | Direct Download Link | Description & Included Files | File Format |
+| :--- | :--- | :--- | :--- |
+| **📱 Android Smartphone App** | [📥 Download Android App (.apk)](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Android.apk) | **Complete Android App**: Native APK file ready to install on all Android smartphones. | `.apk` (~6.0 MB) |
+| **💻 Windows & Linux Desktop App** | [📥 Download Desktop App Complete Package](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Desktop-Complete.zip) | **Complete Desktop Package**: Contains Desktop App, 1-Click Launchers, and Windows/Linux instruction guides! | `.zip` (~44 KB) |
+| **🌐 Web Browser Edition** | [📥 Download Web Edition Complete Package](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Web-Complete.zip) | **Complete Web Package**: Contains Web Server, Web App, Launchers, and Web instruction guide! | `.zip` (~49 KB) |
 
 ---
 
-### 📖 Included Instruction Files Inside Package
+### 📖 Simple Guide: How to Download & Use Each Package
 
-Inside **`WiFili-Messenger-Complete-Package.zip`**, you will find 3 dedicated step-by-step instruction files:
+#### 📱 1. For Android Smartphones (`.apk`):
+1. Click **`[📥 Download Android App (.apk)]`** above on your phone.
+2. Open the `.apk` file, allow *"Install unknown apps"*, and tap **Install**.
+3. Launch **WiFili Messenger** and tap **`⚡ Scan LAN Users`** to connect!
 
-1. **`INSTRUCTIONS-WINDOWS.txt`**: Complete 2-step guide for Windows 10/11 users.
-2. **`INSTRUCTIONS-LINUX.txt`**: Complete guide for Ubuntu, Debian, Fedora, and Arch Linux users.
-3. **`INSTRUCTIONS-WEB.txt`**: Complete guide for Chrome, Edge, Firefox, and Safari users.
+#### 💻 2. For Windows & Linux Desktop App (`.zip`):
+1. Click **`[📥 Download Desktop App Complete Package]`** above.
+2. Extract the downloaded ZIP folder on your computer.
+3. **Windows**: Double-click **`1-Click-Start-Desktop-App.bat`**.
+4. **Linux**: Open terminal and run **`./run-desktop.sh`**.
+*(Instructions included in `INSTRUCTIONS-WINDOWS.txt` and `INSTRUCTIONS-LINUX.txt`)*
+
+#### 🌐 3. For Web Edition in Chrome / Edge (`.zip`):
+1. Click **`[📥 Download Web Edition Complete Package]`** above.
+2. Extract the downloaded ZIP folder on your computer.
+3. **Windows**: Double-click **`1-Click-Start-Web-Browser-App.bat`**.
+4. **Linux**: Open terminal and run **`./run-web.sh`**.
+5. Chrome or Edge will open automatically at **`http://localhost:8080`**!
+*(Instructions included in `INSTRUCTIONS-WEB.txt`)*
 
 ---
 
