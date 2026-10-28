@@ -11,6 +11,16 @@
 
 ---
 
+## 📥 Direct Downloads & Releases (Ventoy Style)
+
+| Platform | Download Link | Description |
+| :--- | :--- | :--- |
+| **📱 Android App** | [📥 Download WiFili-Messenger-Android.apk](releases/WiFili-Messenger-Android.apk) | Ready-to-install Android APK |
+| **💻 Windows & Linux Desktop** | [📥 Download WiFili-Messenger-Desktop.jar](releases/WiFili-Messenger-Desktop.jar) | Standalone Executable Java JAR |
+| **🌐 Web Edition Scripts** | [📥 Download run-web.bat](run-web.bat) / [run-web.sh](run-web.sh) | Web Server Launchers for Chrome/Edge |
+
+---
+
 ## 🌐 Offline Mesh Architecture
 
 ```mermaid

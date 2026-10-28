@@ -1,0 +1,62 @@
+name: Build & Release WiFili Messenger (Ventoy Style)
+
+on:
+  push:
+    branches: [ main, master ]
+    tags:
+      - 'v*'
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    name: Build Android, Desktop & Web Release Binaries
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Make Gradlew Executable
+        run: chmod +x gradlew
+
+      - name: Build Android APK
+        run: ./gradlew :app:assembleDebug
+
+      - name: Build Desktop Executable JAR
+        run: ./gradlew :desktop:jar
+
+      - name: Prepare Release Package Directory
+        run: |
+          mkdir -p build-assets
+          cp app/build/outputs/apk/debug/app-debug.apk build-assets/WiFili-Messenger-Android.apk
+          cp desktop/build/libs/desktop.jar build-assets/WiFili-Messenger-Desktop.jar
+          zip -r build-assets/WiFili-Messenger-Web.zip web/ run-web.bat run-web.sh
+
+      - name: Upload Build Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: WiFili-Messenger-Release-Assets
+          path: build-assets/*
+
+      - name: Create GitHub Release (Ventoy Style)
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            build-assets/WiFili-Messenger-Android.apk
+            build-assets/WiFili-Messenger-Desktop.jar
+            build-assets/WiFili-Messenger-Web.zip
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
