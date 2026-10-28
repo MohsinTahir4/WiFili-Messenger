@@ -77,20 +77,32 @@ public class WebServer {
     static class StaticFileHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange exchange) throws IOException {
-            File htmlFile = new File("web/index.html");
-            if (!htmlFile.exists()) {
-                htmlFile = new File("../web/index.html");
-            }
-            if (!htmlFile.exists()) {
-                String fallback = "<html><body><h1>WiFili Messenger Web Server</h1><p>web/index.html not found. Place index.html in web/ directory.</p></body></html>";
-                byte[] bytes = fallback.getBytes(StandardCharsets.UTF_8);
-                exchange.getResponseHeaders().set("Content-Type", "text/html");
-                exchange.sendResponseHeaders(200, bytes.length);
-                try (OutputStream os = exchange.getResponseBody()) { os.write(bytes); }
-                return;
+            byte[] bytes = null;
+
+            // 1. Try reading directly from inside JAR classpath resource
+            try (InputStream is = WebServer.class.getResourceAsStream("/web/index.html")) {
+                if (is != null) {
+                    bytes = is.readAllBytes();
+                }
+            } catch (Exception ignored) {}
+
+            // 2. Fallback to external disk file
+            if (bytes == null) {
+                File htmlFile = new File("web/index.html");
+                if (!htmlFile.exists()) {
+                    htmlFile = new File("../web/index.html");
+                }
+                if (htmlFile.exists()) {
+                    bytes = java.nio.file.Files.readAllBytes(htmlFile.toPath());
+                }
             }
 
-            byte[] bytes = java.nio.file.Files.readAllBytes(htmlFile.toPath());
+            // 3. Fallback inline HTML
+            if (bytes == null) {
+                String fallback = "<html><body><h1>WiFili Messenger Web Server</h1><p>Running offline.</p></body></html>";
+                bytes = fallback.getBytes(StandardCharsets.UTF_8);
+            }
+
             exchange.getResponseHeaders().set("Content-Type", "text/html; charset=UTF-8");
             exchange.sendResponseHeaders(200, bytes.length);
             try (OutputStream os = exchange.getResponseBody()) {
