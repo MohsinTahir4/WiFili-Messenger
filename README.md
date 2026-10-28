@@ -1,4 +1,4 @@
-# 📶 WiFili Messenger (LanChat)
+# 📶 WiFili Messenger (LanChat) • 100% Offline P2P LAN Chat & Calling App
 
 ![Android](https://img.shields.io/badge/Android-3776AB?style=for-the-badge&logo=android&logoColor=white)
 ![Java](https://img.shields.io/badge/Java_17-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
@@ -7,17 +7,27 @@
 ![Chrome](https://img.shields.io/badge/Chrome_Web-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)
 ![Offline](https://img.shields.io/badge/100%25_Offline-Wi--Fi_LAN-success?style=for-the-badge)
 
-**WiFili Messenger** is a 100% offline, cross-platform, peer-to-peer messaging, file sharing, and real-time audio/video calling application that connects **Android phones, Windows PCs, Linux desktops, and Web Browsers** directly over local Wi-Fi or Mobile Hotspots without needing an internet connection or external servers.
+**WiFili Messenger** (also known as **LanChat**) is a 100% offline, cross-platform, peer-to-peer (P2P) local area network (LAN) messaging, high-speed file sharing, and real-time audio/video calling application. It connects **Android smartphones, Windows PCs, Linux desktops, and Web Browsers** directly over local Wi-Fi routers or Mobile Hotspots without needing an internet connection, cloud databases, or third-party servers.
 
 ---
 
-## 📥 Direct Downloads & Releases (Ventoy Style)
+## 📥 Direct Downloads & Releases (Working Binaries)
 
-| Platform | Download Link | Description |
-| :--- | :--- | :--- |
-| **📱 Android App** | [📥 Download WiFili-Messenger-Android.apk](releases/WiFili-Messenger-Android.apk) | Ready-to-install Android APK |
-| **💻 Windows & Linux Desktop** | [📥 Download WiFili-Messenger-Desktop.jar](releases/WiFili-Messenger-Desktop.jar) | Standalone Executable Java JAR |
-| **🌐 Web Edition Scripts** | [📥 Download run-web.bat](run-web.bat) / [run-web.sh](run-web.sh) | Web Server Launchers for Chrome/Edge |
+| Platform | Direct Download Link | Description | File Format |
+| :--- | :--- | :--- | :--- |
+| **📱 Android App** | [📥 Download WiFili-Messenger-Android.apk](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Android.apk) | Ready-to-install Android APK | `.apk` (~12 MB) |
+| **💻 Windows & Linux Desktop** | [📥 Download WiFili-Messenger-Desktop.jar](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Desktop.jar) | Standalone Executable Java JAR | `.jar` (~8 MB) |
+| **🌐 Web Server Scripts** | [📥 Download run-web.bat](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/run-web.bat) / [run-web.sh](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/run-web.sh) | Web Server Launchers for Chrome/Edge | `.bat` / `.sh` |
+
+---
+
+## 📱 App Screenshots & Description
+
+| Platform | Interface Design & Description |
+| :--- | :--- |
+| **📱 Android App** | • **WhatsApp/Telegram Style Chat**: Clean chat bubbles, real-time message delivery, and emoji picker.<br>• **File Sharing**: Instant photo, video, and document sharing with live percentage progress bars (`0%-100%`).<br>• **Audio & Video Calls**: Real-time voice and video calling over local Wi-Fi with speakerphone toggle and upright portrait camera view. |
+| **💻 Desktop App (Windows & Linux)** | • **Native Java Swing GUI**: Dark slate theme matching the web design (`:desktop` module).<br>• **Sidebar Peer Discovery**: Real-time list of discovered LAN users with IP addresses and online status badges.<br>• **In-Call Modal Windows**: Dedicated call windows with live video preview, mute microphone, and hangup controls. |
+| **🌐 Web Browser Edition** | • **Zero-Install Web App**: Runs locally in **Chrome, Edge, Firefox, or Safari** via embedded HTTP server (`http://localhost:8080`).<br>• **Dark/Light Theme**: Toggle between dark and light modes effortlessly.<br>• **Cross-Device Sync**: Connects browsers to mobile phones and PCs instantly over local Wi-Fi. |
 
 ---
 
@@ -77,7 +87,6 @@ graph LR
 
 ---
 
-
 ## 🚀 How to Build & Run
 
 ### 1. Android App
@@ -111,39 +120,15 @@ Open `http://localhost:8080` or `http://<your-ip>:8080` in Chrome/Edge!
 
 ---
 
-## 📤 How to Upload & Push to Your GitHub Account
+## ☕ Support & Donations (Coinbase & Binance)
 
-### Step 1: Link Your GitHub Repository
-1. Create a new repository on [GitHub](https://github.com/new) named `WiFili-Messenger`.
-2. Open terminal in the project directory and run:
+If you find **WiFili Messenger** helpful and want to support open-source offline development, you can donate via Coinbase, Binance, or Cryptocurrency!
 
-```bash
-# 1. Rename branch to main
-git branch -M main
+[![Coinbase](https://img.shields.io/badge/Donate-Coinbase-0052FF?style=for-the-badge&logo=coinbase&logoColor=white)](https://www.coinbase.com)
+[![Binance](https://img.shields.io/badge/Donate-Binance-F0B90B?style=for-the-badge&logo=binance&logoColor=black)](https://www.binance.com)
 
-# 2. Add your GitHub repository remote URL
-git remote add origin https://github.com/YOUR_USERNAME/WiFili-Messenger.git
-
-# 3. Push code to GitHub
-git push -u origin main
-```
-
----
-
-## 🔄 How to Push Future Updates to GitHub
-
-Whenever you make future updates to the project, run these 3 simple commands in your terminal:
-
-```bash
-# 1. Stage all changes
-git add .
-
-# 2. Commit changes
-git commit -m "Updated features and UI enhancements"
-
-# 3. Push updates to GitHub
-git push
-```
+- **Coinbase (ETH / USDC / BTC)**: `0xYourCoinbaseWalletAddressHere`
+- **Binance (USDT / BNB / SOL)**: `YourBinanceDepositAddressHere`
 
 ---
 
