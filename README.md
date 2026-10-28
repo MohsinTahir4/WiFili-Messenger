@@ -15,8 +15,8 @@
 | Platform | Direct Download Link | Description | File Format | File Size |
 | :--- | :--- | :--- | :--- | :--- |
 | **📱 Android App** | [📥 Download WiFili-Messenger-Android.apk](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Android.apk) | Ready-to-install Android APK | `.apk` | ~6.0 MB |
-| **💻 Windows & Linux Desktop** | [📥 Download WiFili-Messenger-Desktop.jar](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Desktop.jar) | Standalone Executable Java JAR | `.jar` | ~38 KB |
-| **🌐 Web Server Scripts** | [📥 Download run-web.bat](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/run-web.bat) / [run-web.sh](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/run-web.sh) | Web Server Launchers for Chrome/Edge | `.bat` / `.sh` | ~1 KB |
+| **💻 Windows & Linux Desktop** | [📥 Download WiFili-Messenger-Desktop.jar](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Desktop.jar) | Standalone Executable Java App | `.jar` | ~38 KB |
+| **🌐 Web Server Edition** | [📥 Download WiFili-Messenger-Web.zip](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Web.zip) | Complete Offline Web Package | `.zip` | ~42 KB |
 
 ---
 
@@ -31,16 +31,17 @@
 #### 2. 💻 How to Download & Run the Desktop App (`.jar`)
 1. Click **`[📥 Download WiFili-Messenger-Desktop.jar]`** above on your Windows or Linux PC.
 2. Ensure **Java 17+** is installed on your system.
-3. **Windows**: Double-click `WiFili-Messenger-Desktop.jar` to launch the application.
+3. **Windows**: Double-click `WiFili-Messenger-Desktop.jar` to launch the application directly.
 4. **Linux / Terminal**: Open terminal in the download folder and run:
    ```bash
    java -jar WiFili-Messenger-Desktop.jar
    ```
 
-#### 3. 🌐 How to Download & Run the Web Edition (`run-web.bat` / `run-web.sh`)
-1. Download **`run-web.bat`** (Windows) or **`run-web.sh`** (Linux).
-2. Double-click **`run-web.bat`** on Windows (or run `./run-web.sh` on Linux).
-3. Chrome or Microsoft Edge will open automatically at **`http://localhost:8080`**!
+#### 3. 🌐 How to Download & Run the Web Edition (`WiFili-Messenger-Web.zip`)
+1. Click **`[📥 Download WiFili-Messenger-Web.zip]`** above to download the zip package.
+2. Extract the ZIP file on your computer.
+3. Double-click **`run-web.bat`** on Windows (or run `./run-web.sh` on Linux).
+4. Chrome or Microsoft Edge will open automatically at **`http://localhost:8080`**!
 
 ---
 

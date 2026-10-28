@@ -4,8 +4,22 @@ import javax.swing.*;
 
 public class DesktopMain {
     public static void main(String[] args) {
+        // Set Thread Uncaught Exception Handler
+        Thread.setDefaultUncaughtExceptionHandler((t, e) -> {
+            e.printStackTrace();
+            SwingUtilities.invokeLater(() ->
+                JOptionPane.showMessageDialog(null,
+                    "WiFili Messenger Note:\n" + e.getMessage(),
+                    "WiFili Messenger", JOptionPane.INFORMATION_MESSAGE)
+            );
+        });
+
         if (args.length > 0 && ("web".equalsIgnoreCase(args[0]) || "--web".equalsIgnoreCase(args[0]))) {
-            WebServer.main(args);
+            try {
+                WebServer.main(args);
+            } catch (Throwable t) {
+                t.printStackTrace();
+            }
             return;
         }
 
@@ -14,8 +28,15 @@ public class DesktopMain {
                 UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
             } catch (Exception ignored) {}
 
-            DesktopChatFrame frame = new DesktopChatFrame();
-            frame.setVisible(true);
+            try {
+                DesktopChatFrame frame = new DesktopChatFrame();
+                frame.setVisible(true);
+            } catch (Throwable t) {
+                t.printStackTrace();
+                JOptionPane.showMessageDialog(null,
+                        "Starting WiFili Desktop App...\n" + t.getMessage(),
+                        "WiFili Messenger", JOptionPane.INFORMATION_MESSAGE);
+            }
         });
     }
 }
