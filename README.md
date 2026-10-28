@@ -1,17 +1,16 @@
 # 📶 WiFili Messenger (LanChat) • 100% Offline P2P LAN Chat & Calling App
 
-![Android](https://img.shields.io/badge/Android-3776AB?style=for-the-badge&logo=android&logoColor=white)
-![Java](https://img.shields.io/badge/Java_17-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
-![Chrome](https://img.shields.io/badge/Chrome_Web-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)
-![Offline](https://img.shields.io/badge/100%25_Offline-Wi--Fi_LAN-success?style=for-the-badge)
+[![Android](https://img.shields.io/badge/📱_ANDROID-3776AB?style=for-the-badge&logo=android&logoColor=white)](#-android-app-guide)
+[![Windows](https://img.shields.io/badge/💻_WINDOWS-0078D6?style=for-the-badge&logo=windows&logoColor=white)](#-windows--linux-desktop-app-guide)
+[![Linux](https://img.shields.io/badge/🐧_LINUX-FCC624?style=for-the-badge&logo=linux&logoColor=black)](#-windows--linux-desktop-app-guide)
+[![Chrome Web](https://img.shields.io/badge/🌐_CHROME_WEB-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)](#-web-browser-edition-guide)
+[![Downloads](https://img.shields.io/badge/📥_DOWNLOADS-1E65F3?style=for-the-badge&logo=github)](#-direct-downloads--releases)
 
 **WiFili Messenger** (also known as **LanChat**) is a 100% offline, cross-platform, peer-to-peer (P2P) local area network (LAN) messaging, high-speed file sharing, and real-time audio/video calling application. It connects **Android smartphones, Windows PCs, Linux desktops, and Web Browsers** directly over local Wi-Fi routers or Mobile Hotspots without needing an internet connection, cloud databases, or third-party servers.
 
 ---
 
-## 📥 Direct Downloads & Releases (Working Binaries)
+## 📥 Direct Downloads & Releases
 
 | Platform | Direct Download Link | Description | File Format |
 | :--- | :--- | :--- | :--- |
@@ -21,13 +20,61 @@
 
 ---
 
-## 📱 Application Overview, Screenshots & How-to-Use Guide
+## 📱 Android App Guide
 
-| Platform | Application Description | How to Use Step-by-Step | Interface & Design |
-| :--- | :--- | :--- | :--- |
-| **📱 Android App** | **Full-Featured Offline LAN Messenger**<br>• Real-time text & emoji chat.<br>• Ultra-low latency voice & video calling.<br>• High-speed file sharing with progress bars (`0%-100%`).<br>• In-app video player. | **1.** Connect to local Wi-Fi or turn on Mobile Hotspot.<br>**2.** Tap `⚡ Scan LAN Users` to discover nearby devices.<br>**3.** Tap any online user on the list to start chatting, file sharing, or making audio/video calls! | **Android UI Design**<br>Clean WhatsApp-style UI with top action bar (`📞 Audio`, `🎥 Video`), message timeline, and bottom input field with attachment picker. |
-| **💻 Desktop App (Windows & Linux)** | **Native Java Swing GUI App**<br>• Dark slate theme matching Web Edition.<br>• Real-time peer discovery sidebar.<br>• Standalone executable JAR (`.jar`). | **1.** Connect your PC/laptop to the same Wi-Fi.<br>**2.** Double-click `run-desktop.bat` (Windows) or `./run-desktop.sh` (Linux).<br>**3.** Click `⚡ Scan LAN Users`, select a user on the left, and chat or call! | **Desktop UI Design**<br>Modern dark slate dual-pane interface with left search/peer list and right active chat & video call modal window. |
-| **🌐 Web Browser Edition** | **Zero-Install Web App**<br>• Runs locally in Chrome, Edge, Firefox, or Safari.<br>• Powered by embedded HTTP server (`:8080`).<br>• Dark/Light theme toggle. | **1.** Connect your phone/PC to local Wi-Fi.<br>**2.** Double-click `run-web.bat` (Windows) or `./run-web.sh` (Linux).<br>**3.** Open `http://localhost:8080` in Chrome/Edge to start messaging! | **Web UI Design**<br>Responsive HTML5 dashboard with dark/light mode toggle, live peer polling, and full P2P messaging. |
+### Overview & Interface Design
+The **WiFili Android App** features a modern WhatsApp/Telegram-style user interface built for high-speed offline local Wi-Fi communication.
+
+| Feature | Description |
+| :--- | :--- |
+| **💬 Offline Chat** | Instant peer-to-peer messaging with built-in emoji selection. |
+| **📄 File Sharing** | Send photos, videos, audio notes, and documents (PDF, DOCX, ZIP) with **live percentage progress bars (`0%-100%`)**. |
+| **📞 Audio Calling** | Low-latency 16kHz PCM audio calls over UDP with Loudspeaker & Earpiece toggle. |
+| **🎥 Video Calling** | Upright portrait video calling with front/back camera switching and local picture-in-picture preview. |
+| **🎬 Video Player** | In-app video player to preview received videos directly. |
+
+### How to Use on Android:
+1. Connect your phone to local Wi-Fi, or turn on **Mobile Hotspot**.
+2. Tap **`⚡ Scan LAN Users`** on the action bar to discover nearby connected devices.
+3. Tap any user from the list to start chatting, sending files, or starting an audio/video call!
+
+---
+
+## 💻 Windows & Linux Desktop App Guide
+
+### Overview & Interface Design
+The **WiFili Desktop App** is a native Java Swing application (`:desktop` module) styled in a sleek dark slate theme that matches the web browser edition.
+
+| Feature | Description |
+| :--- | :--- |
+| **🔍 Search & Discovery** | Real-time LAN user search sidebar displaying online status badges (`🟢 Online`). |
+| **💬 PC Messaging** | Full desktop keyboard chat with custom emoji picker and file attachment dialogs. |
+| **📞 Desktop Calls** | Complete audio & video call modal windows with live video preview, mute microphone, and hangup buttons. |
+
+### How to Use on Desktop (Windows & Linux):
+1. Connect your PC/laptop to the same Wi-Fi network as your phones.
+2. **Windows**: Double-click `run-desktop.bat`.
+3. **Linux**: Open terminal and run `./run-desktop.sh`.
+4. Click **`⚡ Scan LAN Users`**, pick a user on the left, and chat or call offline!
+
+---
+
+## 🌐 Web Browser Edition Guide
+
+### Overview & Interface Design
+The **WiFili Web Edition** runs locally in **Chrome, Edge, Firefox, or Safari** via an embedded HTTP Web Server running on port `8080`.
+
+| Feature | Description |
+| :--- | :--- |
+| **⚡ Zero Installation** | Runs instantly inside any web browser without installing additional software. |
+| **🎨 Dark & Light Theme** | Toggle between dark and light themes with one click. |
+| **🔄 Live Peer Polling** | Automatically polls `/api/peers` every 2 seconds to list online Wi-Fi users. |
+
+### How to Use Web Edition:
+1. Connect your computer to local Wi-Fi.
+2. **Windows**: Double-click `run-web.bat`.
+3. **Linux**: Open terminal and run `./run-web.sh`.
+4. Open **`http://localhost:8080`** in Chrome or Edge to access the web messenger!
 
 ---
 
