@@ -1,3 +1,4 @@
+<!-- Layout Version: 11.0 - 1-Click Windows Package Integrated -->
 # 📶 WiFili Messenger (LanChat) • 100% Offline P2P LAN Chat & Calling App
 
 [![Android](https://img.shields.io/badge/📱_ANDROID-3776AB?style=for-the-badge&logo=android&logoColor=white)](#-android-app-guide)
@@ -10,38 +11,29 @@
 
 ---
 
-## 📥 Direct Downloads & Releases
+## 📥 Direct Downloads & Releases (1-Click Simple Setup)
 
-| Platform | Direct Download Link | Description | File Format | File Size |
-| :--- | :--- | :--- | :--- | :--- |
-| **📱 Android App** | [📥 Download WiFili-Messenger-Android.apk](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Android.apk) | Ready-to-install Android APK | `.apk` | ~6.0 MB |
-| **💻 Windows & Linux Desktop** | [📥 Download WiFili-Messenger-Desktop.jar](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Desktop.jar) | Standalone Executable Java App | `.jar` | ~38 KB |
-| **🌐 Web Server Edition** | [📥 Download WiFili-Messenger-Web.zip](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Web.zip) | Complete Offline Web Package | `.zip` | ~42 KB |
+| Platform | Direct Download Link | Description & Usage | Format / Size |
+| :--- | :--- | :--- | :--- |
+| **💻 Windows PC (1-Click Package)** | [📥 Download Windows 1-Click Package](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Windows-1Click.zip) | **For Non-Technical Users**: Extract ZIP & double-click `1-Click-Start` to launch app! | `.zip` (~49 KB) |
+| **📱 Android Phone App** | [📥 Download Android APK](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Android.apk) | Ready-to-install APK for all Android smartphones | `.apk` (~6.0 MB) |
+| **💻 Standalone Desktop JAR** | [📥 Download Standalone Desktop JAR](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Desktop.jar) | Universal Executable Java app for Windows, Linux & Mac | `.jar` (~45 KB) |
+| **🌐 Web Server Package** | [📥 Download Web Server Package](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Web.zip) | Offline Web Edition launcher package for Chrome/Edge | `.zip` (~48 KB) |
 
 ---
 
-### 📖 Step-by-Step Guide: How to Download & Use Each File
+### 📖 Simple 2-Step Guide for Non-Technical Users
 
-#### 1. 📱 How to Download & Install the Android App (`.apk`)
-1. Click **`[📥 Download WiFili-Messenger-Android.apk]`** above using your phone's browser.
-2. Once downloaded, tap the notification or file to open it.
-3. If Android displays *"Install unknown apps"*, tap **Settings** and enable **"Allow from this source"**.
-4. Tap **Install** and launch **WiFili Messenger**!
+#### 💻 For Windows PC Users:
+1. Click **`[📥 Download Windows 1-Click Package]`** above.
+2. Extract the downloaded ZIP folder.
+3. Double-click **`1-Click-Start-WiFili-Messenger.bat`** — the app will open immediately!
+4. *(Optional)* To open in Google Chrome instead, double-click **`run-web.bat`**!
 
-#### 2. 💻 How to Download & Run the Desktop App (`.jar`)
-1. Click **`[📥 Download WiFili-Messenger-Desktop.jar]`** above on your Windows or Linux PC.
-2. Ensure **Java 17+** is installed on your system.
-3. **Windows**: Double-click `WiFili-Messenger-Desktop.jar` to launch the application directly.
-4. **Linux / Terminal**: Open terminal in the download folder and run:
-   ```bash
-   java -jar WiFili-Messenger-Desktop.jar
-   ```
-
-#### 3. 🌐 How to Download & Run the Web Edition (`WiFili-Messenger-Web.zip`)
-1. Click **`[📥 Download WiFili-Messenger-Web.zip]`** above to download the zip package.
-2. Extract the ZIP file on your computer.
-3. Double-click **`run-web.bat`** on Windows (or run `./run-web.sh` on Linux).
-4. Chrome or Microsoft Edge will open automatically at **`http://localhost:8080`**!
+#### 📱 For Android Phone Users:
+1. Click **`[📥 Download Android APK]`** on your phone.
+2. Open the downloaded `.apk` file and tap **Install**.
+3. Launch **WiFili Messenger** and tap **`⚡ Scan LAN Users`** to connect!
 
 ---
 
@@ -81,7 +73,7 @@ The **WiFili Web Edition** runs locally in **Chrome, Edge, Firefox, or Safari** 
 | Feature | Description |
 | :--- | :--- |
 | **⚡ Zero Installation** | Runs instantly inside any web browser without installing additional software. |
-| **🎨 Dark & Light Theme** | Toggle between dark and light themes with one click. |
+| **🎨 Dark & Light Theme** | Toggle between dark and light modes effortlessly. |
 | **🔄 Live Peer Polling** | Automatically polls `/api/peers` every 2 seconds to list online Wi-Fi users. |
 
 ---
