@@ -1,0 +1,22 @@
+========================================================================
+🌐 WiFili Messenger (LanChat) - Web Edition Guide
+========================================================================
+
+Welcome to WiFili Messenger Web Browser Edition!
+
+------------------------------------------------------------------------
+🚀 HOW TO RUN WEB EDITION (Chrome, Edge, Firefox, Safari):
+------------------------------------------------------------------------
+1. Windows: Double-click "1-Click-Start-Web-Browser-App.bat" (or run-web.bat)
+   Linux:   Run "./run-web.sh" in terminal.
+2. The web server starts on port 8080.
+3. Your browser (Chrome/Edge) will open automatically at:
+   http://localhost:8080
+
+------------------------------------------------------------------------
+💡 ACCESS FROM OTHER PHONES / PCS ON WI-FI:
+------------------------------------------------------------------------
+Other phones and computers connected to the same Wi-Fi can open your Web App
+by visiting:
+http://<YOUR-PC-IP>:8080  (e.g., http://192.168.1.111:8080)
+========================================================================
