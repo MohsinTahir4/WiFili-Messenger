@@ -1,20 +1,32 @@
 @echo off
-title WiFili Messenger Desktop
-echo ====================================================
-echo 📶 Launching WiFili Messenger Desktop App...
-echo ====================================================
+setlocal
+cd /d "%~dp0"
+title WiFili Messenger - Desktop App
 
-where java >nul 2>nul
-if %errorlevel% neq 0 (
-    echo.
-    echo ⚠️ Java runtime is required to run WiFili Messenger.
-    echo Opening official Java download page...
-    start https://adoptium.net/temurin/releases/?version=17
-    pause
+rem 1. Check for bundled portable JRE in jre\bin\javaw.exe
+if exist "%~dp0jre\bin\javaw.exe" (
+    start "" "%~dp0jre\bin\javaw.exe" -jar "%~dp0WiFili-Messenger-Desktop.jar"
     exit /b
 )
 
-start "" javaw -jar "%~dp0WiFili-Messenger-Desktop.jar"
-if %errorlevel% neq 0 (
-    java -jar "%~dp0WiFili-Messenger-Desktop.jar"
+rem 2. Check for installed system Java
+where java >nul 2>nul
+if %errorlevel% equ 0 (
+    start "" javaw -jar "%~dp0WiFili-Messenger-Desktop.jar"
+    if %errorlevel% neq 0 (
+        java -jar "%~dp0WiFili-Messenger-Desktop.jar"
+    )
+    exit /b
 )
+
+rem 3. If Java is missing on PC, prompt to install Java 17
+echo ====================================================
+echo 📶 WiFili Messenger - Java Runtime Required
+echo ====================================================
+echo.
+echo Java 17 or higher is required to run WiFili Messenger on PC.
+echo.
+echo Opening official free Java 17 download page...
+echo.
+start https://adoptium.net/temurin/releases/?version=17
+pause
