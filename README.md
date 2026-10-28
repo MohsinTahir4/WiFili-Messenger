@@ -77,29 +77,6 @@ graph LR
 
 ---
 
-## 🎬 Demonstration Video Script & Recording Guide
-
-### Scene 1: Introduction (0:00 - 0:30)
-- **Visual**: Show two Android phones, a Windows PC, and a Linux laptop connected to the same Wi-Fi.
-- **Voiceover**: *"Welcome to WiFili Messenger — a 100% offline, cross-platform messaging, file sharing, and real-time audio/video calling application that connects Android, Windows, Linux, and Web Browsers without needing any internet connection!"*
-
-### Scene 2: Peer Discovery (0:30 - 1:00)
-- **Visual**: Tap `⚡ Scan LAN Users` on the phone and click `⚡ Scan LAN Users` on the PC.
-- **Voiceover**: *"With one tap on the Scan button, devices broadcast on UDP port 45454 to discover nearby users on local Wi-Fi. All active users pop up instantly on both screens!"*
-
-### Scene 3: Messaging & File Sharing (1:00 - 1:30)
-- **Visual**: Send a text message with emojis, then pick and send a 10MB video file.
-- **Voiceover**: *"Messages send instantly over TCP sockets. When sharing files, both sender and receiver see a real-time percentage progress bar from 0% to 100%. Upon completion, video files are playable directly in-app."*
-
-### Scene 4: Real-Time Audio & Video Calling (1:30 - 2:15)
-- **Visual**: Tap the Video Call icon `🎥`. The second phone rings with a ringtone and vibration alert. Tap Accept.
-- **Voiceover**: *"WiFili Messenger features non-blocking UDP audio and video calling. Voice streams with zero latency at 16kHz PCM. Video calls render upright in portrait mode with front/back camera switching and loudspeaker toggles."*
-
-### Scene 5: Web Edition & Conclusion (2:15 - 3:00)
-- **Visual**: Double-click `run-web.bat` on Windows or `./run-web.sh` on Linux to launch Chrome at `http://localhost:8080`.
-- **Voiceover**: *"Need to connect from any browser? Double-click `run-web.bat` or `./run-web.sh` to launch the Web Edition in Chrome! WiFili Messenger is open-source and available on GitHub."*
-
----
 
 ## 🚀 How to Build & Run
 
