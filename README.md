@@ -21,13 +21,13 @@
 
 ---
 
-## 📱 App Screenshots & Description
+## 📱 Application Overview, Screenshots & How-to-Use Guide
 
-| Platform | Interface Design & Description |
-| :--- | :--- |
-| **📱 Android App** | • **WhatsApp/Telegram Style Chat**: Clean chat bubbles, real-time message delivery, and emoji picker.<br>• **File Sharing**: Instant photo, video, and document sharing with live percentage progress bars (`0%-100%`).<br>• **Audio & Video Calls**: Real-time voice and video calling over local Wi-Fi with speakerphone toggle and upright portrait camera view. |
-| **💻 Desktop App (Windows & Linux)** | • **Native Java Swing GUI**: Dark slate theme matching the web design (`:desktop` module).<br>• **Sidebar Peer Discovery**: Real-time list of discovered LAN users with IP addresses and online status badges.<br>• **In-Call Modal Windows**: Dedicated call windows with live video preview, mute microphone, and hangup controls. |
-| **🌐 Web Browser Edition** | • **Zero-Install Web App**: Runs locally in **Chrome, Edge, Firefox, or Safari** via embedded HTTP server (`http://localhost:8080`).<br>• **Dark/Light Theme**: Toggle between dark and light modes effortlessly.<br>• **Cross-Device Sync**: Connects browsers to mobile phones and PCs instantly over local Wi-Fi. |
+| Platform | Application Description | How to Use Step-by-Step | Interface & Design |
+| :--- | :--- | :--- | :--- |
+| **📱 Android App** | **Full-Featured Offline LAN Messenger**<br>• Real-time text & emoji chat.<br>• Ultra-low latency voice & video calling.<br>• High-speed file sharing with progress bars (`0%-100%`).<br>• In-app video player. | **1.** Connect to local Wi-Fi or turn on Mobile Hotspot.<br>**2.** Tap `⚡ Scan LAN Users` to discover nearby devices.<br>**3.** Tap any online user on the list to start chatting, file sharing, or making audio/video calls! | **Android UI Design**<br>Clean WhatsApp-style UI with top action bar (`📞 Audio`, `🎥 Video`), message timeline, and bottom input field with attachment picker. |
+| **💻 Desktop App (Windows & Linux)** | **Native Java Swing GUI App**<br>• Dark slate theme matching Web Edition.<br>• Real-time peer discovery sidebar.<br>• Standalone executable JAR (`.jar`). | **1.** Connect your PC/laptop to the same Wi-Fi.<br>**2.** Double-click `run-desktop.bat` (Windows) or `./run-desktop.sh` (Linux).<br>**3.** Click `⚡ Scan LAN Users`, select a user on the left, and chat or call! | **Desktop UI Design**<br>Modern dark slate dual-pane interface with left search/peer list and right active chat & video call modal window. |
+| **🌐 Web Browser Edition** | **Zero-Install Web App**<br>• Runs locally in Chrome, Edge, Firefox, or Safari.<br>• Powered by embedded HTTP server (`:8080`).<br>• Dark/Light theme toggle. | **1.** Connect your phone/PC to local Wi-Fi.<br>**2.** Double-click `run-web.bat` (Windows) or `./run-web.sh` (Linux).<br>**3.** Open `http://localhost:8080` in Chrome/Edge to start messaging! | **Web UI Design**<br>Responsive HTML5 dashboard with dark/light mode toggle, live peer polling, and full P2P messaging. |
 
 ---
 
