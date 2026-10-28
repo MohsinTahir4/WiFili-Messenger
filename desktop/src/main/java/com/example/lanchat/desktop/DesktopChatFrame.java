@@ -48,6 +48,13 @@ public class DesktopChatFrame extends JFrame implements DesktopLanManager.Listen
         lanManager.registerListener(this);
         lanManager.start();
 
+        // Start embedded WebServer in background so Web Edition (http://localhost:8080) works automatically
+        new Thread(() -> {
+            try {
+                WebServer.main(new String[]{"background"});
+            } catch (Exception ignored) {}
+        }).start();
+
         initUI();
     }
 
@@ -84,14 +91,45 @@ public class DesktopChatFrame extends JFrame implements DesktopLanManager.Listen
             lanManager.announce();
             List<DesktopLanManager.DesktopPeer> list = lanManager.getPeersList();
             JOptionPane.showMessageDialog(this,
-                    "LAN Scan Triggered!\nFound " + list.size() + " active user(s) on your local Wi-Fi network.",
+                    "LAN Scan Triggered!\nFound " + list.size() + " active user(s) on your local Wi-Fi network.\n(Tip: You can also use '+ Add IP' if router blocks broadcast).",
                     "LAN Scan", JOptionPane.INFORMATION_MESSAGE);
         });
 
-        JPanel rightHeader = new JPanel(new FlowLayout(FlowLayout.RIGHT, 16, 0));
+        JButton btnManualAdd = createStyledButton("+ Add IP", new Color(15, 118, 110));
+        btnManualAdd.setToolTipText("Manually connect to a device by entering its IP address (e.g. 192.168.1.50)");
+        btnManualAdd.addActionListener(e -> {
+            String ip = JOptionPane.showInputDialog(this, "Enter Device IP Address (e.g. 192.168.1.50):", "Manual IP Connection", JOptionPane.QUESTION_MESSAGE);
+            if (ip != null && !ip.trim().isEmpty()) {
+                String name = JOptionPane.showInputDialog(this, "Enter Device Name:", "Manual IP Connection", JOptionPane.QUESTION_MESSAGE);
+                if (name == null || name.trim().isEmpty()) name = "Device-" + ip;
+                final String finalName = name;
+                
+                DesktopLanManager.DesktopPeer manualPeer = new DesktopLanManager.DesktopPeer(ip.trim(), finalName.trim(), ip.trim());
+                // Add directly to peer list
+                boolean found = false;
+                for(int i = 0; i < peerListModel.size(); i++) {
+                    if(peerListModel.get(i).getIp().equals(ip.trim())) {
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    peerListModel.addElement(manualPeer);
+                }
+                
+                lanManager.sendText(ip.trim(), "Hello from " + lanManager.getDeviceName(), () -> {
+                    JOptionPane.showMessageDialog(this, "Successfully connected to " + finalName + " (" + ip + ")!", "Connected", JOptionPane.INFORMATION_MESSAGE);
+                }, err -> {
+                    JOptionPane.showMessageDialog(this, "Added to list. Note: Connection ping test gave: " + err, "Manual Add", JOptionPane.INFORMATION_MESSAGE);
+                });
+            }
+        });
+
+        JPanel rightHeader = new JPanel(new FlowLayout(FlowLayout.RIGHT, 12, 0));
         rightHeader.setOpaque(false);
         rightHeader.add(lblStatusInfo);
         rightHeader.add(btnScan);
+        rightHeader.add(btnManualAdd);
 
         topHeader.add(logoGroup, BorderLayout.WEST);
         topHeader.add(rightHeader, BorderLayout.EAST);
@@ -151,12 +189,12 @@ public class DesktopChatFrame extends JFrame implements DesktopLanManager.Listen
             }
         });
 
-        // Sidebar Empty State Label (Matches Screenshot 2)
+        // Sidebar Empty State Label
         lblEmptySidebar = new JLabel("<html><body style='text-align:center; padding:30px 10px; color:#94A3B8;'>" +
                 "<h1 style='color:#38BDF8; margin-bottom:8px;'>Searching...</h1>" +
                 "<b style='color:#FFFFFF; font-size:13px;'>Searching for LAN Users...</b><br><br>" +
                 "<span style='font-size:11px;'>No other WiFili users found on this Wi-Fi yet.</span><br><br>" +
-                "<span style='font-size:11px; color:#38BDF8;'>Connect another phone or PC to the same Wi-Fi / Hotspot and click 'Scan LAN Users'.</span>" +
+                "<span style='font-size:11px; color:#38BDF8;'>Click 'Scan LAN Users' or '+ Add IP' to connect instantly!</span>" +
                 "</body></html>", SwingConstants.CENTER);
 
         JScrollPane scrollPeers = new JScrollPane(peerJList);
@@ -231,7 +269,7 @@ public class DesktopChatFrame extends JFrame implements DesktopLanManager.Listen
         chatMessagesPanel.setBackground(new Color(15, 23, 42));
         chatMessagesPanel.setBorder(new EmptyBorder(16, 20, 16, 20));
 
-        // Initial Watermark Message (Matches Screenshot 2)
+        // Initial Watermark Message
         JLabel lblWatermark = new JLabel("<html><body style='text-align:center; color:#94A3B8; font-size:12px;'>" +
                 "End-to-End Direct LAN Wi-Fi Connection • 100% Offline & Private" +
                 "</body></html>", SwingConstants.CENTER);
@@ -315,11 +353,6 @@ public class DesktopChatFrame extends JFrame implements DesktopLanManager.Listen
             super(text, SwingConstants.CENTER);
             this.bgColor = bgColor;
             setOpaque(false);
-        }
-
-        public void setBgColor(Color c) {
-            this.bgColor = c;
-            repaint();
         }
 
         @Override
@@ -409,7 +442,7 @@ public class DesktopChatFrame extends JFrame implements DesktopLanManager.Listen
     private void initiateCall(String callType) {
         if (activePeer == null) {
             JOptionPane.showMessageDialog(this,
-                    "⚠️ You are not connected to any user.\n\nHow to Fix:\n1. Select an online user from the left list.\n2. Or click 'Scan LAN Users' to discover nearby devices on your Wi-Fi.",
+                    "⚠️ You are not connected to any user.\n\nHow to Fix:\n1. Select an online user from the left list.\n2. Or click 'Scan LAN Users' / '+ Add IP' to connect.",
                     "Not Connected", JOptionPane.WARNING_MESSAGE);
             return;
         }
@@ -483,7 +516,7 @@ public class DesktopChatFrame extends JFrame implements DesktopLanManager.Listen
     private void sendTextMessage() {
         if (activePeer == null) {
             JOptionPane.showMessageDialog(this,
-                    "⚠️ You are not connected to any user.\n\nHow to Fix:\n1. Select an online user from the left list.\n2. Or click 'Scan LAN Users' to discover nearby devices on your Wi-Fi.",
+                    "⚠️ You are not connected to any user.\n\nHow to Fix:\n1. Select an online user from the left list.\n2. Or click 'Scan LAN Users' / '+ Add IP' to connect.",
                     "Not Connected", JOptionPane.WARNING_MESSAGE);
             return;
         }
@@ -500,7 +533,7 @@ public class DesktopChatFrame extends JFrame implements DesktopLanManager.Listen
     private void attachAndSendFile() {
         if (activePeer == null) {
             JOptionPane.showMessageDialog(this,
-                    "⚠️ You are not connected to any user.\n\nHow to Fix:\n1. Select an online user from the left list.\n2. Or click 'Scan LAN Users' to discover nearby devices on your Wi-Fi.",
+                    "⚠️ You are not connected to any user.\n\nHow to Fix:\n1. Select an online user from the left list.\n2. Or click 'Scan LAN Users' / '+ Add IP' to connect.",
                     "Not Connected", JOptionPane.WARNING_MESSAGE);
             return;
         }
@@ -519,7 +552,7 @@ public class DesktopChatFrame extends JFrame implements DesktopLanManager.Listen
         JOptionPane.showMessageDialog(this,
                 "How to Use WiFili Desktop (Linux & Windows):\n\n" +
                 "1. Connect both devices to the SAME Wi-Fi or Mobile Hotspot.\n" +
-                "2. Click 'Scan LAN Users' to discover connected devices on your network.\n" +
+                "2. Click 'Scan LAN Users' or '+ Add IP' to discover connected devices on your network.\n" +
                 "3. Click any user on the left list to start chatting, sending files, or calling offline!",
                 "How to Use", JOptionPane.INFORMATION_MESSAGE);
     }
