@@ -1,0 +1,22 @@
+========================================================================
+📶 WiFili Messenger (LanChat) - Windows Desktop Guide
+========================================================================
+
+Welcome to WiFili Messenger for Windows!
+
+------------------------------------------------------------------------
+🚀 HOW TO RUN ON WINDOWS:
+------------------------------------------------------------------------
+1. Double-click "1-Click-Start-Desktop-App.bat" to open the Desktop App.
+2. The application window will open automatically in a sleek dark theme.
+3. Click "⚡ Scan LAN Users" to discover connected phones and PCs on your Wi-Fi!
+
+------------------------------------------------------------------------
+🛠️ TROUBLESHOOTING & TIPS:
+------------------------------------------------------------------------
+• Requires Java 17 or higher. If Java is not installed on your PC,
+  double-clicking the launcher script will automatically open the free 1-click
+  official Java installer page at https://adoptium.net
+
+• All devices must be connected to the SAME Wi-Fi network or Mobile Hotspot.
+========================================================================
