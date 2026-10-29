@@ -1,32 +1,28 @@
 @echo off
-setlocal
-cd /d "%~dp0"
-title WiFili Messenger - Web Edition
+title WiFili Messenger Web Edition
+echo ====================================================
+echo 📶 Starting WiFili Messenger Web Edition...
+echo ====================================================
 
-rem 1. Check for bundled portable JRE in jre\bin\javaw.exe
-if exist "%~dp0jre\bin\javaw.exe" (
-    start "" "%~dp0jre\bin\javaw.exe" -jar "%~dp0WiFili-Messenger-Desktop.jar" web
-    exit /b
+:: Automatically configure Windows Defender Firewall rules in background
+netsh advfirewall firewall show rule name="WiFili Messenger LAN" >nul 2>&1
+if %errorlevel% neq 0 (
+    echo Configuring Windows Defender Firewall...
+    netsh advfirewall firewall add rule name="WiFili Messenger LAN" dir=in action=allow protocol=TCP localport=45455,8080,45457,45458 profile=any >nul 2>&1
+    netsh advfirewall firewall add rule name="WiFili Messenger Discovery" dir=in action=allow protocol=UDP localport=45454,45457,45458 profile=any >nul 2>&1
 )
 
-rem 2. Check for installed system Java
 where java >nul 2>nul
-if %errorlevel% equ 0 (
-    start "" javaw -jar "%~dp0WiFili-Messenger-Desktop.jar" web
-    if %errorlevel% neq 0 (
-        java -jar "%~dp0WiFili-Messenger-Desktop.jar" web
-    )
+if %errorlevel% neq 0 (
+    echo.
+    echo ⚠️ Java runtime is required to run WiFili Web Server.
+    echo Opening official Java download page...
+    start https://adoptium.net/temurin/releases/?version=17
+    pause
     exit /b
 )
 
-rem 3. If Java is missing on PC, prompt to install Java 17
-echo ====================================================
-echo 📶 WiFili Messenger - Java Runtime Required
-echo ====================================================
-echo.
-echo Java 17 or higher is required to run WiFili Web Server on PC.
-echo.
-echo Opening official free Java 17 download page...
-echo.
-start https://adoptium.net/temurin/releases/?version=17
-pause
+start "" javaw -jar "%~dp0WiFili-Messenger-Desktop.jar" web
+if %errorlevel% neq 0 (
+    java -jar "%~dp0WiFili-Messenger-Desktop.jar" web
+)
