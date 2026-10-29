@@ -10,7 +10,8 @@ const WEB_PORT = 8080;
 
 let mainWindow;
 let deviceId = Math.random().toString(36).substring(2, 10);
-let deviceName = 'Electron-User-' + deviceId;
+let osName = process.platform === 'win32' ? 'Win-User-' : process.platform === 'linux' ? 'Linux-User-' : 'Desktop-User-';
+let deviceName = osName + deviceId;
 let peers = new Map();
 let messageHistory = [];
 
@@ -21,10 +22,13 @@ function createWindow() {
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false
-        }
+        },
+        autoHideMenuBar: true
     });
 
-    mainWindow.loadFile(path.join(__dirname, '../web/index.html'));
+    // Load Web Edition UI
+    const indexPath = path.join(__dirname, '../web/index.html');
+    mainWindow.loadFile(indexPath);
 }
 
 // Start Embedded HTTP Server for Web Edition API compatibility
@@ -36,8 +40,12 @@ function startWebServer() {
 
         if (req.url === '/api/peers') {
             res.writeHead(200, { 'Content-Type': 'application/json' });
-            const peerList = Array.from(peers.values());
-            res.end(JSON.stringify(peerList));
+            // Prune peers not seen in 15 seconds
+            const now = Date.now();
+            for (let [id, p] of peers.entries()) {
+                if (now - p.lastSeen > 15000) peers.delete(id);
+            }
+            res.end(JSON.stringify(Array.from(peers.values())));
         } else if (req.url === '/api/messages') {
             res.writeHead(200, { 'Content-Type': 'application/json' });
             res.end(JSON.stringify(messageHistory));
