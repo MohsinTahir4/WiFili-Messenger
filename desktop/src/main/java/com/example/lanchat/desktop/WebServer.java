@@ -22,6 +22,16 @@ public class WebServer {
         try {
             DesktopLanManager lanManager = DesktopLanManager.getInstance();
             lanManager.start();
+            lanManager.registerListener(new DesktopLanManager.Listener() {
+                @Override
+                public void onPeersUpdated(List<DesktopLanManager.DesktopPeer> peerList) {}
+
+                @Override
+                public void onMessageReceived(String senderIp, String senderName, String body, String type, String filePath, String fileName) {
+                    String msgJson = "{\"sender\":\"" + escapeJson(senderName) + "\",\"body\":\"" + escapeJson(body) + "\",\"type\":\"received\",\"time\":\"Now\"}";
+                    messageHistory.add(msgJson);
+                }
+            });
 
             int activePort = findAvailablePort(8080);
             HttpServer server = HttpServer.create(new InetSocketAddress(activePort), 0);
