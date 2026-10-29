@@ -1,0 +1,15 @@
+{
+  "name": "wifili-messenger-electron",
+  "version": "1.0.0",
+  "description": "100% Offline P2P LAN Chat & Calling App - Electron Desktop Client",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": ["lan", "chat", "p2p", "offline", "electron"],
+  "author": "Mohsin Tahir",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^28.0.0"
+  }
+}

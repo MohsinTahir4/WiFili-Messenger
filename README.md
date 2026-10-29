@@ -1,8 +1,10 @@
+<!-- Layout Version: 12.0 - Electron + TypeScript / Node.js Cross-Platform Client -->
 # 📶 WiFili Messenger (LanChat) • 100% Offline P2P LAN Chat & Calling App
 
 [![Android](https://img.shields.io/badge/📱_ANDROID-3776AB?style=for-the-badge&logo=android&logoColor=white)](#-android-app-guide)
 [![Windows](https://img.shields.io/badge/💻_WINDOWS-0078D6?style=for-the-badge&logo=windows&logoColor=white)](#-windows--linux-desktop-app-guide)
 [![Linux](https://img.shields.io/badge/🐧_LINUX-FCC624?style=for-the-badge&logo=linux&logoColor=black)](#-windows--linux-desktop-app-guide)
+[![Electron](https://img.shields.io/badge/⚛️_ELECTRON-47848F?style=for-the-badge&logo=electron&logoColor=white)](#-electron-desktop-client-module)
 [![Chrome Web](https://img.shields.io/badge/🌐_CHROME_WEB-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)](#-web-browser-edition-guide)
 [![Downloads](https://img.shields.io/badge/📥_DOWNLOADS-1E65F3?style=for-the-badge&logo=github)](#-direct-downloads--releases)
 
@@ -14,38 +16,28 @@
 
 | Platform / Device | Direct Download Link | Description & Included Installers | File Format | File Size |
 | :--- | :--- | :--- | :--- | :--- |
-| **📱 Android Smartphone App** | [📥 Download Android App (.apk)](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Android.apk) | **Android App**: Ready-to-install APK for all Android smartphones. | `.apk` | ~6.0 MB |
-| **💻 Windows & Linux Desktop** | [📥 Download Desktop Complete Package (.zip)](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Desktop-Complete.zip) | **Desktop Package**: Contains Windows Installer script (`WiFili-Messenger-Windows-Installer.bat`), Linux installer script (`install-linux.sh`), Java app, and guides! | `.zip` | ~45 KB |
-| **🌐 Web Browser Edition** | [📥 Download Web Edition Complete Package](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Web-Complete.zip) | **Web Package**: Contains Web Server, HTML5 Web UI, launchers, and Web instructions! | `.zip` | ~49 KB |
+| **📱 Android Smartphone App** | [📥 Download Android App (.apk)](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Android.apk) | **Complete Android App**: Native APK file ready to install on all Android smartphones. | `.apk` | ~6.0 MB |
+| **💻 Windows & Linux Desktop App** | [📥 Download Desktop Complete Package (.zip)](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Desktop-Complete.zip) | **Complete Desktop Package**: Contains Windows Installer script, Linux installer script, Java app, and guides! | `.zip` | ~44 KB |
+| **🌐 Web Browser Edition** | [📥 Download Web Edition Complete Package](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Web-Complete.zip) | **Complete Web Package**: Contains Web Server, HTML5 Web UI, launchers, and Web instructions! | `.zip` | ~49 KB |
 
 ---
 
-### 📖 Installation & Setup Guide for Each Platform
+## ⚛️ Electron Desktop Client Module (`electron/`)
 
-#### 💻 1. For Windows PC Users (`WiFili-Messenger-Desktop-Complete.zip`):
-1. Download and extract **`WiFili-Messenger-Desktop-Complete.zip`**.
-2. Double-click **`WiFili-Messenger-Windows-Installer.bat`** to install the app and create a **Desktop Shortcut** automatically!
-3. Double-click the new **"WiFili Messenger"** shortcut on your Desktop whenever you want to chat offline.
+For developers looking for a modern **Node.js / Electron + TypeScript** desktop implementation sharing the exact same web frontend:
 
-#### 🐧 2. For Linux Desktop Users (`WiFili-Messenger-Desktop-Complete.zip`):
-1. Extract **`WiFili-Messenger-Desktop-Complete.zip`** in terminal.
-2. Run the Linux installer script:
+1. Navigate to the `electron/` directory:
    ```bash
-   chmod +x install-linux.sh
-   ./install-linux.sh
+   cd electron
    ```
-3. WiFili Messenger will be added to your Linux application menu and desktop automatically!
-
-#### 🌐 3. For Web Browser Users in Chrome / Edge (`WiFili-Messenger-Web-Complete.zip`):
-1. Download and extract **`WiFili-Messenger-Web-Complete.zip`**.
-2. **Windows**: Double-click **`1-Click-Start-Web-Browser-App.bat`**.
-3. **Linux**: Run `./run-web.sh`.
-4. Chrome or Edge will open automatically at **`http://localhost:8080`**!
-
-#### 📱 4. For Android Smartphone Users (`.apk`):
-1. Download **`WiFili-Messenger-Android.apk`** on your phone.
-2. Open the `.apk` file, allow *"Install unknown apps"*, and tap **Install**.
-3. Launch **WiFili Messenger** and tap **`⚡ Scan LAN Users`** (or use **`+ IP`** to connect manually) to start communicating across platforms!
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Run the Electron desktop client:
+   ```bash
+   npm start
+   ```
 
 ---
 
