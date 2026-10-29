@@ -224,18 +224,30 @@ public class LanManager {
 
     public void sendText(String destIp, String text, Runnable onSuccess, java.util.function.Consumer<String> onError) {
         pool.execute(() -> {
-            try (Socket s = new Socket()) {
-                s.connect(new InetSocketAddress(destIp, CHAT_PORT), 3500);
-                DataOutputStream o = new DataOutputStream(new BufferedOutputStream(s.getOutputStream()));
-                o.writeInt(1); // 1 = text
-                o.writeUTF(deviceName);
-                o.writeUTF(text);
-                o.flush();
-                db.addMessage(deviceId, deviceName, destIp, text, "text", null, null, 0, true);
-                notifyMessageReceived(destIp);
-                if (onSuccess != null) mainHandler.post(onSuccess);
-            } catch (Exception e) {
-                if (onError != null) mainHandler.post(() -> onError.accept("Send failed: " + e.getMessage()));
+            Exception lastEx = null;
+            for (int attempt = 1; attempt <= 2; attempt++) {
+                try (Socket s = new Socket()) {
+                    s.connect(new InetSocketAddress(destIp, CHAT_PORT), 8000);
+                    DataOutputStream o = new DataOutputStream(new BufferedOutputStream(s.getOutputStream()));
+                    o.writeInt(1); // 1 = text
+                    o.writeUTF(deviceName);
+                    o.writeUTF(text);
+                    o.flush();
+                    db.addMessage(deviceId, deviceName, destIp, text, "text", null, null, 0, true);
+                    notifyMessageReceived(destIp);
+                    if (onSuccess != null) mainHandler.post(onSuccess);
+                    return;
+                } catch (Exception e) {
+                    lastEx = e;
+                    try { Thread.sleep(500); } catch (Exception ignored) {}
+                }
+            }
+            String reason = (lastEx != null && lastEx.getMessage() != null) ? lastEx.getMessage() : "Connection timeout";
+            String advice = (reason != null && (reason.contains("timed out") || reason.contains("refused") || reason.contains("failed to connect"))) ?
+                "\n\n💡 Firewall / Network Tip:\n• Windows Defender Firewall is likely blocking incoming TCP port 45455 on the PC.\n• Allow Java / WiFili through Windows Firewall or check if both devices are on the exact same Wi-Fi network." : "";
+            if (onError != null) {
+                final String errorMsg = "Send failed: " + reason + advice;
+                mainHandler.post(() -> onError.accept(errorMsg));
             }
         });
     }
