@@ -3,34 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WiFili Messenger • Web Edition (Offline LAN)</title>
+    <title>WiFili Messenger • Web Edition</title>
     <style>
         :root {
-            --bg-primary: #0f172a;
-            --bg-secondary: #1e293b;
+            --bg-primary: #0F172A;
+            --bg-secondary: #1E293B;
             --bg-card: #334155;
-            --accent-blue: #1e65f3;
-            --accent-green: #22c55e;
-            --accent-red: #ef4444;
-            --text-main: #f8fafc;
-            --text-sub: #94a3b8;
-            --bubble-sent: #1e65f3;
-            --bubble-recv: #334155;
-            --border-color: #475569;
+            --text-main: #FFFFFF;
+            --text-sub: #94A3B8;
+            --accent-blue: #1E65F3;
+            --accent-green: #22C55E;
+            --accent-red: #EF4444;
+            --border-color: #334155;
         }
 
         .light-theme {
-            --bg-primary: #f8fafc;
-            --bg-secondary: #ffffff;
-            --bg-card: #f1f5f9;
-            --accent-blue: #1e65f3;
-            --accent-green: #22c55e;
-            --accent-red: #ef4444;
-            --text-main: #0f172a;
-            --text-sub: #64748b;
-            --bubble-sent: #1e65f3;
-            --bubble-recv: #e2e8f0;
-            --border-color: #cbd5e1;
+            --bg-primary: #F8FAFC;
+            --bg-secondary: #FFFFFF;
+            --bg-card: #F1F5F9;
+            --text-main: #0F172A;
+            --text-sub: #64748B;
+            --accent-blue: #2563EB;
+            --accent-green: #16A34A;
+            --accent-red: #DC2626;
+            --border-color: #E2E8F0;
         }
 
         * {
@@ -49,16 +45,15 @@
             overflow: hidden;
         }
 
-        /* Top Header Navigation */
+        /* Header Bar */
         header {
             background-color: var(--bg-secondary);
             height: 64px;
+            padding: 0 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 0 24px;
             border-bottom: 1px solid var(--border-color);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
         }
 
         .logo-group {
@@ -68,20 +63,13 @@
         }
 
         .logo-icon {
-            width: 38px;
-            height: 38px;
-            background: var(--accent-blue);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            color: white;
+            font-size: 24px;
         }
 
         .logo-title {
             font-size: 18px;
             font-weight: 700;
+            color: var(--text-main);
         }
 
         .header-actions {
@@ -95,7 +83,6 @@
             padding: 6px 14px;
             border-radius: 20px;
             font-size: 13px;
-            font-weight: 600;
             color: var(--text-sub);
             display: flex;
             align-items: center;
@@ -113,10 +100,10 @@
             background: var(--accent-blue);
             color: white;
             border: none;
-            padding: 8px 16px;
+            padding: 8px 18px;
             border-radius: 8px;
-            font-size: 13px;
             font-weight: 600;
+            font-size: 13px;
             cursor: pointer;
             transition: all 0.2s;
             display: inline-flex;
@@ -166,9 +153,13 @@
         .sidebar-header {
             padding: 16px;
             border-bottom: 1px solid var(--border-color);
+            display: flex;
+            gap: 8px;
+            align-items: center;
         }
 
         .search-box {
+            flex: 1;
             background: var(--bg-card);
             border-radius: 8px;
             padding: 8px 12px;
@@ -199,36 +190,46 @@
             padding: 12px;
             border-radius: 10px;
             cursor: pointer;
-            transition: background 0.2s;
+            transition: background 0.15s;
             margin-bottom: 4px;
         }
 
-        .user-item:hover, .user-item.active {
+        .user-item:hover {
             background: var(--bg-card);
+        }
+
+        .user-item.active {
+            background: var(--accent-blue);
+        }
+
+        .user-item.active .user-name,
+        .user-item.active .user-sub {
+            color: white !important;
         }
 
         .user-avatar {
             width: 44px;
             height: 44px;
+            background: #6366F1;
+            color: white;
             border-radius: 50%;
-            background: #6366f1;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
             font-weight: 700;
-            color: white;
-            position: relative;
+            font-size: 16px;
+            flex-shrink: 0;
         }
 
         .user-info {
             flex: 1;
-            overflow: hidden;
+            min-width: 0;
         }
 
         .user-name {
-            font-size: 15px;
             font-weight: 600;
+            font-size: 14px;
+            color: var(--text-main);
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -237,9 +238,10 @@
         .user-sub {
             font-size: 12px;
             color: var(--text-sub);
+            margin-top: 2px;
         }
 
-        /* Chat Main Area */
+        /* Chat Area */
         .chat-area {
             flex: 1;
             display: flex;
@@ -248,9 +250,9 @@
         }
 
         .chat-header {
+            height: 64px;
             background: var(--bg-secondary);
-            height: 60px;
-            padding: 0 20px;
+            padding: 0 24px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -265,22 +267,24 @@
 
         .call-buttons {
             display: flex;
-            gap: 10px;
+            align-items: center;
+            gap: 8px;
         }
 
+        /* Messages Timeline */
         .messages-timeline {
             flex: 1;
-            padding: 20px;
             overflow-y: auto;
+            padding: 24px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 16px;
         }
 
         .msg-row {
             display: flex;
             flex-direction: column;
-            max-width: 65%;
+            max-width: 60%;
         }
 
         .msg-row.sent {
@@ -294,24 +298,24 @@
         }
 
         .msg-bubble {
-            padding: 10px 14px;
+            padding: 12px 16px;
             border-radius: 14px;
             font-size: 14px;
-            line-height: 1.4;
-            position: relative;
+            line-height: 1.5;
             word-break: break-word;
         }
 
         .msg-row.sent .msg-bubble {
-            background: var(--bubble-sent);
+            background: var(--accent-blue);
             color: white;
-            border-bottom-right-radius: 2px;
+            border-bottom-right-radius: 4px;
         }
 
         .msg-row.received .msg-bubble {
-            background: var(--bubble-recv);
+            background: var(--bg-secondary);
             color: var(--text-main);
-            border-bottom-left-radius: 2px;
+            border-bottom-left-radius: 4px;
+            border: 1px solid var(--border-color);
         }
 
         .msg-time {
@@ -322,13 +326,13 @@
         }
 
         .file-card {
+            background: rgba(0, 0, 0, 0.15);
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
             gap: 10px;
-            background: rgba(0, 0, 0, 0.15);
-            padding: 8px 12px;
-            border-radius: 8px;
-            margin-bottom: 4px;
         }
 
         /* Bottom Input Bar */
@@ -471,6 +475,7 @@
                     <span>🔍</span>
                     <input type="text" id="input-search" placeholder="Search connected LAN users..." onkeyup="filterUsers()">
                 </div>
+                <button class="btn btn-secondary" onclick="manualAddIp()" title="Manually connect by IP address" style="padding: 8px 12px; font-size:12px;">+ IP</button>
             </div>
 
             <div class="users-list" id="users-list-container">
@@ -498,12 +503,14 @@
 
             <!-- Messages Timeline -->
             <div class="messages-timeline" id="timeline">
-                <div style="text-align:center; color:var(--text-sub); margin-top:40px; font-size:13px;">
-                    🔒 End-to-End Direct LAN Wi-Fi Connection • 100% Offline &amp; Private
+                <div style="text-align: center; color: var(--text-sub); margin-top: auto; margin-bottom: auto;">
+                    <div style="font-size: 32px; margin-bottom: 8px;">🔒</div>
+                    <strong>End-to-End Direct LAN Wi-Fi Connection • 100% Offline & Private</strong><br>
+                    <small>Select an online device from the left sidebar to start messaging or calling.</small>
                 </div>
             </div>
 
-            <!-- Emoji Popover -->
+            <!-- Emoji Picker Popover -->
             <div class="emoji-popover" id="emoji-popover">
                 <div class="emoji-btn" onclick="insertEmoji('😀')">😀</div>
                 <div class="emoji-btn" onclick="insertEmoji('😂')">😂</div>
@@ -521,9 +528,11 @@
 
             <!-- Bottom Input Bar -->
             <div class="chat-input-bar">
-                <button class="btn btn-secondary btn-icon" onclick="toggleEmojiPicker()">😀</button>
-                <button class="btn btn-secondary btn-icon" onclick="document.getElementById('file-picker').click()">📎</button>
-                <input type="file" id="file-picker" style="display:none;" onchange="handleFileSelect(event)">
+                <button class="btn btn-secondary btn-icon" onclick="toggleEmojiPicker()" title="Emoji Picker">😀</button>
+                <label class="btn btn-secondary btn-icon" style="cursor:pointer;" title="Attach File">
+                    📎
+                    <input type="file" id="file-input" style="display:none;" onchange="handleFileSelect(event)">
+                </label>
 
                 <div class="input-box-wrapper">
                     <input type="text" id="msg-input" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
@@ -534,41 +543,65 @@
         </div>
     </div>
 
-    <!-- Call Overlay Modal -->
+    <!-- Call Modal Overlay -->
     <div class="modal-overlay" id="call-modal">
         <div class="call-card">
-            <div class="user-avatar" style="width:72px; height:72px; font-size:32px; margin:0 auto 12px auto;" id="call-avatar">?</div>
-            <h2 id="call-peer-title">Peer Name</h2>
-            <p style="color:var(--text-sub); margin-top:4px;" id="call-status-lbl">Calling...</p>
+            <h2 id="call-peer-title" style="margin-bottom: 8px;">Calling...</h2>
+            <div style="color: var(--text-sub); font-size: 13px;" id="call-status-lbl">Ringing device...</div>
+
+            <div class="user-avatar" id="call-avatar" style="width: 80px; height: 80px; font-size: 32px; margin: 24px auto;">?</div>
 
             <div class="video-container" id="video-area" style="display:none;">
-                <video id="remote-video" autoplay playsinline style="width:100%; height:100%; object-fit:cover;"></video>
+                <span style="color: var(--text-sub);">Live Video Stream Area</span>
             </div>
 
             <div class="call-ctrls">
-                <button class="btn btn-secondary btn-icon" onclick="toggleMic()" id="btn-mic">🎙️</button>
-                <button class="btn btn-secondary btn-icon" onclick="toggleSpeaker()" id="btn-spk">🔊</button>
-                <button class="btn btn-danger btn-icon" onclick="endCall()" style="width:48px; height:48px; font-size:20px;">🔴</button>
+                <button class="btn btn-secondary btn-icon" onclick="toggleMute()" id="btn-mute" style="width:48px; height:48px; font-size:18px;" title="Mute Mic">🎙️</button>
+                <button class="btn btn-secondary btn-icon" onclick="toggleSpeaker()" id="btn-spk" style="width:48px; height:48px; font-size:18px;" title="Speaker">🔊</button>
+                <button class="btn btn-danger btn-icon" onclick="endCall()" style="width:48px; height:48px; font-size:20px;" title="Hangup">🔴</button>
             </div>
         </div>
     </div>
 
     <script>
         let currentPeer = null;
-        let users = []; // Real discovered users array (starts completely empty)
+        let users = []; // Real discovered users array
 
         async function fetchPeers() {
             try {
                 const response = await fetch('/api/peers');
                 if (response.ok) {
                     const realUsers = await response.json();
-                    users = realUsers;
+                    // Merge with any manually added users
+                    realUsers.forEach(ru => {
+                        if (!users.some(u => u.ip === ru.ip)) {
+                            users.push(ru);
+                        }
+                    });
                     renderUsers(users);
                 } else {
-                    renderUsers([]);
+                    renderUsers(users);
                 }
             } catch (err) {
                 renderUsers(users);
+            }
+        }
+
+        function manualAddIp() {
+            const ip = prompt("Enter Device IP Address (e.g. 192.168.1.50):");
+            if (!ip || !ip.trim()) return;
+            const name = prompt("Enter Device Name:", "Device-" + ip);
+            const finalName = (name && name.trim()) ? name.trim() : "Device-" + ip;
+
+            const manualPeer = { id: ip.trim(), name: finalName, ip: ip.trim(), status: 'Online' };
+            if (!users.some(u => u.ip === ip.trim())) {
+                users.push(manualPeer);
+                renderUsers(users);
+                selectUser(manualPeer);
+                alert('Successfully added ' + finalName + ' (' + ip + ') to chat list!');
+            } else {
+                const existing = users.find(u => u.ip === ip.trim());
+                selectUser(existing);
             }
         }
 
@@ -582,7 +615,7 @@
                         <div style="font-size:36px; margin-bottom:8px;">📶</div>
                         <strong>Searching for LAN Users...</strong><br>
                         No other WiFili users found on this Wi-Fi yet.<br><br>
-                        <small style="color:var(--accent-blue);">Connect another phone or PC to the same Wi-Fi / Hotspot and tap 'Scan LAN Users'.</small>
+                        <small style="color:var(--accent-blue);">Connect another phone or PC to the same Wi-Fi / Hotspot and tap 'Scan LAN Users' or '+ IP'.</small>
                     </div>
                 `;
                 return;
@@ -623,7 +656,7 @@
             if (!text) return;
 
             if (!currentPeer) {
-                alert('⚠️ You are not connected to any user.\n\nHow to Fix:\n1. Select an online user from the left list.\n2. Or click "Scan LAN Users" to find nearby devices on your Wi-Fi.');
+                alert('⚠️ You are not connected to any user.\n\nHow to Fix:\n1. Select an online user from the left list.\n2. Or click "+ IP" to connect manually by IP address.');
                 return;
             }
 
@@ -680,7 +713,7 @@
             const file = e.target.files[0];
             if (!file) return;
             if (!currentPeer) {
-                alert('⚠️ You are not connected to any user.\n\nHow to Fix:\n1. Select an online user from the left list.\n2. Or click "Scan LAN Users" to find nearby devices on your Wi-Fi.');
+                alert('⚠️ You are not connected to any user.\n\nHow to Fix:\n1. Select an online user from the left list.\n2. Or click "+ IP" to connect manually by IP address.');
                 return;
             }
             const sizeStr = (file.size / 1024).toFixed(1) + ' KB';
@@ -727,7 +760,7 @@
         }
 
         function openGuide() {
-            alert("📖 How to Use WiFili Web Edition Offline:\n\n1. Connect all devices to the SAME Wi-Fi or Mobile Hotspot.\n2. Click 'Scan LAN Users' to discover connected devices on your local network.\n3. Click any user on the left to start chatting, sending files, or calling offline!");
+            alert("📖 How to Use WiFili Web Edition Offline:\n\n1. Connect all devices to the SAME Wi-Fi or Mobile Hotspot.\n2. Click 'Scan LAN Users' or '+ IP' to connect to connected devices on your local network.\n3. Click any user on the left to start chatting, sending files, or calling offline!");
         }
 
         // Initialize & Live Poll real LAN peers every 2 seconds
