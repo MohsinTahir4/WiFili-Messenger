@@ -24,7 +24,10 @@ import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
+import java.net.NetworkInterface;
+import java.net.InterfaceAddress;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -116,8 +119,30 @@ public class LanManager {
             try (DatagramSocket s = new DatagramSocket()) {
                 s.setBroadcast(true);
                 byte[] data = ("LANCHAT|" + deviceId + "|" + deviceName).getBytes("UTF-8");
-                DatagramPacket p = new DatagramPacket(data, data.length, InetAddress.getByName("255.255.255.255"), DISCOVERY_PORT);
-                s.send(p);
+                
+                // 1. Send to limited broadcast
+                try {
+                    DatagramPacket p = new DatagramPacket(data, data.length, InetAddress.getByName("255.255.255.255"), DISCOVERY_PORT);
+                    s.send(p);
+                } catch (Exception ignored) {}
+
+                // 2. Send to local subnet broadcasts across all network interfaces
+                try {
+                    Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
+                    while (interfaces.hasMoreElements()) {
+                        NetworkInterface ni = interfaces.nextElement();
+                        if (ni.isUp() && !ni.isLoopback()) {
+                            for (InterfaceAddress ia : ni.getInterfaceAddresses()) {
+                                InetAddress broadcast = ia.getBroadcast();
+                                if (broadcast != null) {
+                                    DatagramPacket p = new DatagramPacket(data, data.length, broadcast, DISCOVERY_PORT);
+                                    s.send(p);
+                                }
+                            }
+                        }
+                    }
+                } catch (Exception ignored) {}
+
             } catch (Exception ignored) {}
         });
     }
