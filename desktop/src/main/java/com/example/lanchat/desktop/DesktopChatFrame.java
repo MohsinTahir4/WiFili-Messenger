@@ -48,13 +48,6 @@ public class DesktopChatFrame extends JFrame implements DesktopLanManager.Listen
         lanManager.registerListener(this);
         lanManager.start();
 
-        // Start embedded WebServer in background so Web Edition (http://localhost:8080) works automatically
-        new Thread(() -> {
-            try {
-                WebServer.main(new String[]{"background"});
-            } catch (Exception ignored) {}
-        }).start();
-
         initUI();
     }
 
