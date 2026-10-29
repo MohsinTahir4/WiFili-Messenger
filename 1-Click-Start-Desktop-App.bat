@@ -1,4 +1,6 @@
 @echo off
+setlocal
+cd /d "%~dp0"
 title WiFili Messenger Desktop
 echo ====================================================
 echo 📶 Starting WiFili Messenger Desktop App...
@@ -12,6 +14,21 @@ if %errorlevel% neq 0 (
     netsh advfirewall firewall add rule name="WiFili Messenger Discovery" dir=in action=allow protocol=UDP localport=45454,45457,45458 profile=any >nul 2>&1
 )
 
+:: Locate WiFili-Messenger-Desktop.jar in current folder, releases/ folder, or build/ folder
+set "JAR_PATH="
+if exist "%~dp0WiFili-Messenger-Desktop.jar" set "JAR_PATH=%~dp0WiFili-Messenger-Desktop.jar"
+if not defined JAR_PATH if exist "%~dp0releases\WiFili-Messenger-Desktop.jar" set "JAR_PATH=%~dp0releases\WiFili-Messenger-Desktop.jar"
+if not defined JAR_PATH if exist "%~dp0desktop\build\libs\desktop.jar" set "JAR_PATH=%~dp0desktop\build\libs\desktop.jar"
+
+if not defined JAR_PATH (
+    echo.
+    echo ⚠️ Error: WiFili-Messenger-Desktop.jar not found!
+    echo Please ensure WiFili-Messenger-Desktop.jar is in this folder.
+    echo.
+    pause
+    exit /b
+)
+
 where java >nul 2>nul
 if %errorlevel% neq 0 (
     echo.
@@ -22,7 +39,7 @@ if %errorlevel% neq 0 (
     exit /b
 )
 
-start "" javaw -jar "%~dp0WiFili-Messenger-Desktop.jar"
+start "" javaw -jar "%JAR_PATH%"
 if %errorlevel% neq 0 (
-    java -jar "%~dp0WiFili-Messenger-Desktop.jar"
+    java -jar "%JAR_PATH%"
 )
