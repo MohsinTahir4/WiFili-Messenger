@@ -99,6 +99,9 @@ public class DesktopLanManager {
     public String getDeviceId() { return deviceId; }
 
     public List<DesktopPeer> getPeersList() {
+        // Prune peers not seen in 15 seconds
+        long now = System.currentTimeMillis();
+        peers.values().removeIf(p -> (now - p.getLastSeen()) > 15000);
         return new ArrayList<>(peers.values());
     }
 
@@ -113,16 +116,39 @@ public class DesktopLanManager {
             try (DatagramSocket s = new DatagramSocket()) {
                 s.setBroadcast(true);
                 byte[] data = ("LANCHAT|" + deviceId + "|" + deviceName).getBytes("UTF-8");
-                DatagramPacket p = new DatagramPacket(data, data.length, InetAddress.getByName("255.255.255.255"), DISCOVERY_PORT);
-                s.send(p);
+                
+                // 1. Send to limited broadcast
+                try {
+                    DatagramPacket p = new DatagramPacket(data, data.length, InetAddress.getByName("255.255.255.255"), DISCOVERY_PORT);
+                    s.send(p);
+                } catch (Exception ignored) {}
+
+                // 2. Send to local subnet broadcasts
+                try {
+                    Enumeration<NetworkInterface> interfaces = NetworkInterface.getNetworkInterfaces();
+                    while (interfaces.hasMoreElements()) {
+                        NetworkInterface ni = interfaces.nextElement();
+                        if (ni.isUp() && !ni.isLoopback()) {
+                            for (InterfaceAddress ia : ni.getInterfaceAddresses()) {
+                                InetAddress broadcast = ia.getBroadcast();
+                                if (broadcast != null) {
+                                    DatagramPacket p = new DatagramPacket(data, data.length, broadcast, DISCOVERY_PORT);
+                                    s.send(p);
+                                }
+                            }
+                        }
+                    }
+                } catch (Exception ignored) {}
+
             } catch (Exception ignored) {}
         });
     }
 
     private void startServer() {
         pool.execute(() -> {
-            try (ServerSocket server = new ServerSocket(CHAT_PORT)) {
+            try (ServerSocket server = new ServerSocket()) {
                 server.setReuseAddress(true);
+                server.bind(new InetSocketAddress(CHAT_PORT));
                 while (running) {
                     Socket socket = server.accept();
                     pool.execute(() -> receive(socket));
@@ -133,12 +159,14 @@ public class DesktopLanManager {
 
     private void startDiscovery() {
         pool.execute(() -> {
-            try (DatagramSocket ds = new DatagramSocket(DISCOVERY_PORT)) {
+            try (DatagramSocket ds = new DatagramSocket(null)) {
+                ds.setReuseAddress(true);
+                ds.bind(new InetSocketAddress(DISCOVERY_PORT));
                 ds.setBroadcast(true);
                 byte[] buf = new byte[512];
                 while (running) {
                     DatagramPacket p = new DatagramPacket(buf, buf.length);
-                    ds.setSoTimeout(1500);
+                    ds.setSoTimeout(1200);
                     try {
                         ds.receive(p);
                         String line = new String(p.getData(), 0, p.getLength(), "UTF-8");
@@ -371,11 +399,14 @@ public class DesktopLanManager {
     public void stopCall() {
         isCallActive = false;
         if (micLine != null) { try { micLine.stop(); micLine.close(); } catch (Exception ignored) {} micLine = null; }
+        if (mutexed()) { isMuted = false; }
         if (speakerLine != null) { try { speakerLine.stop(); speakerLine.close(); } catch (Exception ignored) {} speakerLine = null; }
         if (audioSendSocket != null) { try { audioSendSocket.close(); } catch (Exception ignored) {} audioSendSocket = null; }
         if (audioRecvSocket != null) { try { audioRecvSocket.close(); } catch (Exception ignored) {} audioRecvSocket = null; }
         if (videoRecvSocket != null) { try { videoRecvSocket.close(); } catch (Exception ignored) {} videoRecvSocket = null; }
     }
+
+    private boolean mutexed() { return isMuted; }
 
     public void toggleMute() { isMuted = !isMuted; }
     public boolean isMuted() { return isMuted; }
