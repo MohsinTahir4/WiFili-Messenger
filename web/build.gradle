@@ -9,14 +9,14 @@ java {
 }
 
 application {
-    mainClass = 'com.example.lanchat.desktop.DesktopMain'
+    mainClass = 'com.example.lanchat.web.WebMain'
 }
 
 jar {
     archiveFileName = 'WiFili-WebServer.jar'
     manifest {
         attributes(
-            'Main-Class': 'com.example.lanchat.desktop.DesktopMain',
+            'Main-Class': 'com.example.lanchat.web.WebMain',
             'Implementation-Title': 'WiFili Web Server',
             'Implementation-Version': '1.0'
         )

@@ -1,4 +1,4 @@
-package com.example.lanchat.desktop;
+package com.example.lanchat.web;
 
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
