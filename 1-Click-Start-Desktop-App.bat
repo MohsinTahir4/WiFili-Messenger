@@ -1,15 +1,32 @@
 @echo off
 setlocal
 cd /d "%~dp0"
-title WiFili Messenger Desktop
+title WiFili Messenger Desktop App
 echo ====================================================
 echo 📶 Starting WiFili Messenger Desktop App...
 echo ====================================================
 
-if not exist "%~dp0WiFili-Messenger-Desktop.jar" (
+:: 1. Locate JAR
+set "JAR_PATH="
+if exist "%~dp0WiFili-Messenger-Desktop.jar" set "JAR_PATH=%~dp0WiFili-Messenger-Desktop.jar"
+if not defined JAR_PATH if exist "%~dp0releases\WiFili-Messenger-Desktop.jar" set "JAR_PATH=%~dp0releases\WiFili-Messenger-Desktop.jar"
+if not defined JAR_PATH if exist "%~dp0desktop\build\libs\desktop.jar" set "JAR_PATH=%~dp0desktop\build\libs\desktop.jar"
+
+:: 2. Auto-build via Gradle if missing
+if not defined JAR_PATH (
+    if exist "%~dp0gradlew.bat" (
+        echo Building application automatically via Gradle...
+        call "%~dp0gradlew.bat" :desktop:jar
+        if exist "%~dp0desktop\build\libs\desktop.jar" (
+            copy /y "%~dp0desktop\build\libs\desktop.jar" "%~dp0WiFili-Messenger-Desktop.jar" >nul
+            set "JAR_PATH=%~dp0WiFili-Messenger-Desktop.jar"
+        )
+    )
+)
+
+if not defined JAR_PATH (
     echo.
-    echo ⚠️ Error: WiFili-Messenger-Desktop.jar not found in folder!
-    echo Please ensure WiFili-Messenger-Desktop.jar is in this directory.
+    echo ❌ ERROR: WiFili-Messenger-Desktop.jar could not be located or built!
     echo.
     pause
     exit /b
@@ -24,7 +41,7 @@ if %errorlevel% neq 0 (
     exit /b
 )
 
-start "" javaw -jar "%~dp0WiFili-Messenger-Desktop.jar"
+start "" javaw -jar "%JAR_PATH%"
 if %errorlevel% neq 0 (
-    java -jar "%~dp0WiFili-Messenger-Desktop.jar"
+    java -jar "%JAR_PATH%"
 )
