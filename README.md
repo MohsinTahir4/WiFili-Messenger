@@ -1,4 +1,4 @@
-<!-- Layout Version: 21.0 - WiFili Messenger Android & Web Edition -->
+<!-- Layout Version: 22.0 - WiFili Messenger Android & Web Edition -->
 # 📶 WiFili Messenger • 100% Offline P2P LAN Chat & File Sharing (Android & Web)
 
 [![Android](https://img.shields.io/badge/📱_ANDROID-3776AB?style=for-the-badge&logo=android&logoColor=white)](#-android-app-guide--source-and-binaries)
@@ -13,7 +13,6 @@
 
 | Edition / Platform | Direct Download Link | Description & Included Files | File Format | File Size |
 | :--- | :--- | :--- | :--- | :--- |
-| **🌟 Complete Suite** | [📥 Download Complete Package (.zip)](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Complete-Source-And-Binaries.zip) | **Complete Source & Binaries**: Contains Android APK, Web Server JAR (`WiFili-WebServer.jar`), HTML5 UI, and complete source code. | `.zip` | **~45.4 MB** |
 | **📱 Android Smartphone** | [📥 Download Android App (.apk)](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Android.apk) | **Android Binary**: Ready-to-install APK for all Android smartphones and tablets. | `.apk` | ~6.0 MB |
 | **🌐 Web Browser Edition** | [📥 Download Web Edition Complete (.zip)](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Web-Complete.zip) | **Web Source & Binaries Complete**: Contains HTTP Web Server binary (`WiFili-WebServer.jar`), HTML5 UI (`web/index.html`), and full source files. | `.zip` | ~49 KB |
 
@@ -77,7 +76,7 @@ graph LR
 ### 📦 Binaries
 - The Web Edition includes the pre-compiled **Web Server Binary** (`WiFili-WebServer.jar`) and the modern HTML5 web client.
 - **How to Use Binary**:
-  1. Download `WiFili-WebServer.jar` (or the complete package).
+  1. Download `WiFili-WebServer.jar` (or the complete web package).
   2. Run the server binary:
      ```bash
      java -jar WiFili-WebServer.jar
