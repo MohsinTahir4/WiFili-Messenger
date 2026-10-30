@@ -1,4 +1,4 @@
-<!-- Layout Version: 20.0 - WiFili Messenger Android & Web Edition -->
+<!-- Layout Version: 21.0 - WiFili Messenger Android & Web Edition -->
 # 📶 WiFili Messenger • 100% Offline P2P LAN Chat & File Sharing (Android & Web)
 
 [![Android](https://img.shields.io/badge/📱_ANDROID-3776AB?style=for-the-badge&logo=android&logoColor=white)](#-android-app-guide--source-and-binaries)
@@ -25,10 +25,10 @@ Because WiFili Messenger uses **local Wi-Fi radio waves** rather than internet i
 
 ```mermaid
 graph TD
-    A["📱 Phone A (User 1)<br>(Connected to Hotspot)"] <-->|Wi-Fi Radio P2P| B["📱 Phone B (User 2)<br>(Connected to Hotspot)"]
-    A <-->|Wi-Fi Radio P2P| C["🔋 Portable Battery Powered<br>Wi-Fi Travel Router / Hotspot"]
-    B <-->|Wi-Fi Radio P2P| C
-    D["🌐 Laptop / Tablet (Web Edition)<br>(Connected via Wi-Fi)"] <-->|Wi-Fi Radio P2P| C
+    A["Phone A (User 1)"] -->|"Wi-Fi Radio P2P"| B["Phone B (User 2)"]
+    A -->|"Wi-Fi Radio P2P"| C["Portable Wi-Fi Travel Router"]
+    B -->|"Wi-Fi Radio P2P"| C
+    D["Laptop / Tablet (Web Edition)"] -->|"Wi-Fi Radio P2P"| C
 ```
 
 ### Setup Instructions for Off-Grid Environments:
@@ -49,10 +49,10 @@ Standard mobile hotspots or home routers have a range of about 15–30 meters. T
 
 ```mermaid
 graph LR
-    Base["🏕️ Base Camp / Main Phone<br>+ Wi-Fi Hotspot / Router"] -->|Ethernet Cable| CPE1["📡 Outdoor CPE Router A<br>(Ubiquiti / TP-Link CPE510)"]
-    CPE1 ==>|Directional 5GHz Wi-Fi Beam<br>(Up to 5km - 15km LOS Line of Sight)| CPE2["📡 Outdoor CPE Router B<br>(Remote Camp Receiver)"]
-    CPE2 -->|Ethernet Cable| AP["📶 Remote Wi-Fi Access Point<br>+ Switch / Extender"]
-    AP --> RemoteUsers["📱 Remote Phones & Laptops<br>(Connected to Wi-Fi)"]
+    Base["Base Camp Router"] -->|"Ethernet Cable"| CPE1["Outdoor CPE Router A"]
+    CPE1 ==>|"Directional Beam (Up to 5km)"| CPE2["Outdoor CPE Router B"]
+    CPE2 -->|"Ethernet Cable"| AP["Remote Access Point"]
+    AP --> RemoteUsers["Remote Phones & Laptops"]
 ```
 
 ### Hardware Equipment Needed:
