@@ -1,4 +1,4 @@
-<!-- Layout Version: 19.0 - WiFili Messenger Android & Web Edition -->
+<!-- Layout Version: 20.0 - WiFili Messenger Android & Web Edition -->
 # 📶 WiFili Messenger • 100% Offline P2P LAN Chat & File Sharing (Android & Web)
 
 [![Android](https://img.shields.io/badge/📱_ANDROID-3776AB?style=for-the-badge&logo=android&logoColor=white)](#-android-app-guide--source-and-binaries)
@@ -19,7 +19,7 @@
 
 ---
 
-## 🏕️ How to Set Up WiFili Messenger Where Internet is Not Available (Jungle, Desert, Mountains, Disasters)
+## 🏕️ Setup Your Local Wifi Network where Internet Unavailable Can Communicate Offline
 
 Because WiFili Messenger uses **local Wi-Fi radio waves** rather than internet infrastructure, you can set up a fully functioning communication network anywhere on Earth:
 
@@ -45,7 +45,7 @@ graph TD
 
 ## 📡 How to Extend Wi-Fi Range up to 5km or More (Long-Range Outdoor CPE Setup)
 
-Standard mobile hotspots or home routers have a range of about 15–30 meters. To extend your Wi-Fi range up to **5km, 10km, or even farther** across remote valleys, deserts, or camps, use **Long-Range Outdoor CPE Wireless Bridges (Point-to-Point / PTP)**:
+Standard mobile hotspots or home routers have a range of about 15–30 meters. To extend your Wi-Fi range up to **5km, 10km, or even farther** across remote areas, use **Long-Range Outdoor CPE Wireless Bridges (Point-to-Point / PTP)**:
 
 ```mermaid
 graph LR
@@ -75,7 +75,7 @@ graph LR
 ## 🌐 Web Browser Edition Guide (Source & Binary Complete)
 
 ### 📦 Binaries
-- The Web Edition includes the pre-compiled **Web Server Binary** (`WiFili-WebServer.jar`) and the modern HTML5 web client ([index.html](desktop/src/main/java/com/example/lanchat/desktop/resources/web/index.html)).
+- The Web Edition includes the pre-compiled **Web Server Binary** (`WiFili-WebServer.jar`) and the modern HTML5 web client.
 - **How to Use Binary**:
   1. Download `WiFili-WebServer.jar` (or the complete package).
   2. Run the server binary:
@@ -85,8 +85,8 @@ graph LR
   3. Open your browser and navigate to **`http://localhost:8080`** (or your PC's local Wi-Fi IP address `http://192.168.x.x:8080`).
 
 ### 🛠️ Source Code
-- **Full Web Server Source**: [`desktop/src/main/java/com/example/lanchat/desktop/WebServer.java`](desktop/src/main/java/com/example/lanchat/desktop/WebServer.java)
-- **Web UI HTML5 Source**: [`desktop/src/main/java/com/example/lanchat/desktop/resources/web/index.html`](desktop/src/main/java/com/example/lanchat/desktop/resources/web/index.html)
+- **Full Web Server Source**: [`web/src/main/java/com/example/lanchat/web/WebServer.java`](web/src/main/java/com/example/lanchat/web/WebServer.java)
+- **Web UI HTML5 Source**: [`web/src/main/resources/web/index.html`](web/src/main/resources/web/index.html)
 
 ---
 
