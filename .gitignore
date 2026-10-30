@@ -2,7 +2,7 @@
 *.apk
 !releases/*.apk
 !releases/*.jar
-releases/*.zip
+!releases/*.zip
 *.aar
 *.ap_
 *.aab
