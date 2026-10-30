@@ -1,21 +1,21 @@
-<!-- Layout Version: 18.0 - WiFili Messenger Web & Android Edition -->
-# 📶 WiFili Messenger • 100% Offline P2P LAN Chat, Calling & File Sharing (Android & Web)
+<!-- Layout Version: 19.0 - WiFili Messenger Android & Web Edition -->
+# 📶 WiFili Messenger • 100% Offline P2P LAN Chat & File Sharing (Android & Web)
 
-[![Android](https://img.shields.io/badge/📱_ANDROID-3776AB?style=for-the-badge&logo=android&logoColor=white)](#-android-app-guide)
+[![Android](https://img.shields.io/badge/📱_ANDROID-3776AB?style=for-the-badge&logo=android&logoColor=white)](#-android-app-guide--source-and-binaries)
 [![Web Edition](https://img.shields.io/badge/🌐_WEB_EDITION-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)](#-web-browser-edition-guide--source-and-binaries)
 [![Downloads](https://img.shields.io/badge/📥_DOWNLOADS-1E65F3?style=for-the-badge&logo=github)](#-direct-downloads--releases)
 
-**WiFili Messenger** is a 100% offline, peer-to-peer (P2P) local area network (LAN) messaging, high-speed file sharing, and audio/video calling application. It connects **Android smartphones, tablets, laptops, and Web Browsers** directly over local Wi-Fi routers or Mobile Hotspots without needing an internet connection, cloud databases, or cellular towers.
+**WiFili Messenger** is a 100% offline, peer-to-peer (P2P) local area network (LAN) messaging, high-speed file sharing, and audio/video calling application. It connects **Android smartphones, tablets, and Web Browsers** directly over local Wi-Fi routers or Mobile Hotspots without needing an internet connection, cloud databases, or cellular towers.
 
 ---
 
-## 📥 Direct Downloads & Releases (Complete Source & Binaries)
+## 📥 Direct Downloads & Releases (Android APK & Web Edition)
 
 | Edition / Platform | Direct Download Link | Description & Included Files | File Format | File Size |
 | :--- | :--- | :--- | :--- | :--- |
-| **🌟 Complete Suite** | [📥 Download Complete Package (.zip)](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Complete-Source-And-Binaries.zip) | **Complete Source & Binaries**: Contains Android APK, Web Server, HTML5 Web UI, complete source code, and documentation. | `.zip` | **~45.4 MB** |
+| **🌟 Complete Suite** | [📥 Download Complete Package (.zip)](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Complete-Source-And-Binaries.zip) | **Complete Source & Binaries**: Contains Android APK, Web Server JAR (`WiFili-WebServer.jar`), HTML5 UI, and complete source code. | `.zip` | **~45.4 MB** |
 | **📱 Android Smartphone** | [📥 Download Android App (.apk)](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Android.apk) | **Android Binary**: Ready-to-install APK for all Android smartphones and tablets. | `.apk` | ~6.0 MB |
-| **🌐 Web Browser Edition** | [📥 Download Web Edition Complete (.zip)](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Web-Complete.zip) | **Web Source & Binaries Complete**: Contains embedded HTTP Web Server, HTML5 UI (`web/index.html`), source files, and web execution instructions. | `.zip` | ~49 KB |
+| **🌐 Web Browser Edition** | [📥 Download Web Edition Complete (.zip)](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Web-Complete.zip) | **Web Source & Binaries Complete**: Contains HTTP Web Server binary (`WiFili-WebServer.jar`), HTML5 UI (`web/index.html`), and full source files. | `.zip` | ~49 KB |
 
 ---
 
@@ -28,7 +28,7 @@ graph TD
     A["📱 Phone A (User 1)<br>(Connected to Hotspot)"] <-->|Wi-Fi Radio P2P| B["📱 Phone B (User 2)<br>(Connected to Hotspot)"]
     A <-->|Wi-Fi Radio P2P| C["🔋 Portable Battery Powered<br>Wi-Fi Travel Router / Hotspot"]
     B <-->|Wi-Fi Radio P2P| C
-    D["💻 Laptop (Web Edition)<br>(Connected via Wi-Fi)"] <-->|Wi-Fi Radio P2P| C
+    D["🌐 Laptop / Tablet (Web Edition)<br>(Connected via Wi-Fi)"] <-->|Wi-Fi Radio P2P| C
 ```
 
 ### Setup Instructions for Off-Grid Environments:
@@ -75,17 +75,17 @@ graph LR
 ## 🌐 Web Browser Edition Guide (Source & Binary Complete)
 
 ### 📦 Binaries
-- The Web Edition includes the compiled **Embedded HTTP Web Server** ([WebServer.java](desktop/src/main/java/com/example/lanchat/desktop/WebServer.java)) and the modern HTML5 web client ([index.html](desktop/src/main/java/com/example/lanchat/desktop/resources/web/index.html)).
+- The Web Edition includes the pre-compiled **Web Server Binary** (`WiFili-WebServer.jar`) and the modern HTML5 web client ([index.html](desktop/src/main/java/com/example/lanchat/desktop/resources/web/index.html)).
 - **How to Use Binary**:
-  1. Download the Web Edition Complete ZIP.
-  2. Run the Java server binary:
+  1. Download `WiFili-WebServer.jar` (or the complete package).
+  2. Run the server binary:
      ```bash
-     java -cp . com.example.lanchat.desktop.WebServer
+     java -jar WiFili-WebServer.jar
      ```
   3. Open your browser and navigate to **`http://localhost:8080`** (or your PC's local Wi-Fi IP address `http://192.168.x.x:8080`).
 
 ### 🛠️ Source Code
-- **Full Source Location**: [`desktop/src/main/java/com/example/lanchat/desktop/`](desktop/src/main/java/com/example/lanchat/desktop/)
+- **Full Web Server Source**: [`desktop/src/main/java/com/example/lanchat/desktop/WebServer.java`](desktop/src/main/java/com/example/lanchat/desktop/WebServer.java)
 - **Web UI HTML5 Source**: [`desktop/src/main/java/com/example/lanchat/desktop/resources/web/index.html`](desktop/src/main/java/com/example/lanchat/desktop/resources/web/index.html)
 
 ---

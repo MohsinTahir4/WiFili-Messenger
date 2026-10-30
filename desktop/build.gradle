@@ -13,10 +13,11 @@ application {
 }
 
 jar {
+    archiveFileName = 'WiFili-WebServer.jar'
     manifest {
         attributes(
             'Main-Class': 'com.example.lanchat.desktop.DesktopMain',
-            'Implementation-Title': 'LanChat Desktop',
+            'Implementation-Title': 'WiFili Web Server',
             'Implementation-Version': '1.0'
         )
     }
