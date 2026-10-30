@@ -20,10 +20,21 @@ if exist "%~dp0WiFili-Messenger-Desktop.jar" set "JAR_PATH=%~dp0WiFili-Messenger
 if not defined JAR_PATH if exist "%~dp0releases\WiFili-Messenger-Desktop.jar" set "JAR_PATH=%~dp0releases\WiFili-Messenger-Desktop.jar"
 if not defined JAR_PATH if exist "%~dp0desktop\build\libs\desktop.jar" set "JAR_PATH=%~dp0desktop\build\libs\desktop.jar"
 
+:: If JAR is missing (e.g. in Source Code package), build it automatically using Gradle
+if not defined JAR_PATH (
+    if exist "%~dp0gradlew.bat" (
+        echo WiFili-Messenger-Desktop.jar not found. Building app automatically via Gradle...
+        call "%~dp0gradlew.bat" :desktop:jar
+        if exist "%~dp0desktop\build\libs\desktop.jar" (
+            set "JAR_PATH=%~dp0desktop\build\libs\desktop.jar"
+        )
+    )
+)
+
 if not defined JAR_PATH (
     echo.
-    echo ⚠️ Error: WiFili-Messenger-Desktop.jar not found!
-    echo Please ensure WiFili-Messenger-Desktop.jar is in this folder.
+    echo ⚠️ Error: WiFili-Messenger-Desktop.jar could not be located or built!
+    echo Please download "WiFili-Messenger-Desktop-Complete.zip" instead.
     echo.
     pause
     exit /b
