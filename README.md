@@ -1,81 +1,71 @@
-<!-- Layout Version: 16.0 - 45MB Master Suite Restored -->
-# 📶 WiFili Messenger (LanChat) • 100% Offline P2P LAN Chat & Calling App
+<!-- Layout Version: 17.0 - WiFili Messenger Master Complete -->
+# 📶 WiFili Messenger • 100% Offline P2P LAN Chat, Calling & File Sharing Suite
 
-[![Android](https://img.shields.io/badge/📱_ANDROID-3776AB?style=for-the-badge&logo=android&logoColor=white)](#-android-app-guide)
-[![Windows](https://img.shields.io/badge/💻_WINDOWS-0078D6?style=for-the-badge&logo=windows&logoColor=white)](#-windows--linux-desktop-app-guide)
-[![Linux](https://img.shields.io/badge/🐧_LINUX-FCC624?style=for-the-badge&logo=linux&logoColor=black)](#-windows--linux-desktop-app-guide)
-[![Chrome Web](https://img.shields.io/badge/🌐_CHROME_WEB-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)](#-web-browser-edition-guide)
+[![Android](https://img.shields.io/badge/📱_ANDROID-3776AB?style=for-the-badge&logo=android&logoColor=white)](#-android-app-guide--source-and-binaries)
+[![Desktop](https://img.shields.io/badge/💻_DESKTOP-0078D6?style=for-the-badge&logo=windows&logoColor=white)](#-windows--linux-desktop-app-guide--source-and-binaries)
+[![Web Edition](https://img.shields.io/badge/🌐_WEB_EDITION-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)](#-web-browser-edition-guide--source-and-binaries)
 [![Downloads](https://img.shields.io/badge/📥_DOWNLOADS-1E65F3?style=for-the-badge&logo=github)](#-direct-downloads--releases)
 
-**WiFili Messenger** (also known as **LanChat**) is a 100% offline, cross-platform, peer-to-peer (P2P) local area network (LAN) messaging, high-speed file sharing, and real-time audio/video calling application. It connects **Android smartphones, Windows PCs, Linux desktops, and Web Browsers** directly over local Wi-Fi routers or Mobile Hotspots without needing an internet connection, cloud databases, or third-party servers.
+**WiFili Messenger** is a 100% offline, cross-platform, peer-to-peer (P2P) local area network (LAN) messaging, high-speed file sharing, and real-time audio/video calling application. It connects **Android smartphones, Windows PCs, Linux desktops, and Web Browsers** directly over local Wi-Fi routers or Mobile Hotspots without needing an internet connection, cloud databases, or third-party servers.
 
 ---
 
-## 📥 Direct Downloads & Releases (Master Complete 45MB Suite)
+## 📥 Direct Downloads & Releases (Complete Source & Binaries)
 
-| Platform / Edition | Direct Download Link | Description & Included Files | File Format | File Size |
+| Edition / Platform | Direct Download Link | Description & Included Files | File Format | File Size |
 | :--- | :--- | :--- | :--- | :--- |
-| **🌟 Master Complete Suite** | [📥 Download Complete Application Suite (.zip)](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Complete-Source-And-Binaries.zip) | **Complete Application Package**: Contains all binaries, Android APK, Desktop JAR, Web Edition, Windows Installer, Linux Installer, and full source code! | `.zip` | **~45.4 MB** |
-| **📱 Android Smartphone App** | [📥 Download Android App (.apk)](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Android.apk) | **Android App**: Ready-to-install APK for all Android smartphones. | `.apk` | ~6.0 MB |
-| **💻 Windows & Linux Desktop** | [📥 Download Desktop Complete Package (.zip)](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Desktop-Complete.zip) | **Desktop Package**: Contains Windows Installer script, Linux installer script, Java app, and guides! | `.zip` | ~44 KB |
-| **🌐 Web Browser Edition** | [📥 Download Web Edition Complete Package](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Web-Complete.zip) | **Web Package**: Contains Web Server, HTML5 Web UI, launchers, and Web instructions! | `.zip` | ~49 KB |
+| **🌟 Complete Suite** | [📥 Download Complete Package (.zip)](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Complete-Source-And-Binaries.zip) | **Complete Source & Binaries**: Contains all Android APK, Desktop JAR, Web Server, source code repository, and documentation. | `.zip` | **~45.4 MB** |
+| **📱 Android Smartphone** | [📥 Download Android App (.apk)](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Android.apk) | **Android Binary**: Ready-to-install APK for all Android smartphones. | `.apk` | ~6.0 MB |
+| **💻 Desktop Edition** | [📥 Download Desktop Complete (.zip)](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Desktop-Complete.zip) | **Desktop Source & Binaries**: Contains Java Desktop JAR (`WiFili-Messenger-Desktop.jar`), source files, and shell scripts. | `.zip` | ~44 KB |
+| **🌐 Web Browser Edition** | [📥 Download Web Edition (.zip)](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Web-Complete.zip) | **Web Source & Binaries**: Contains HTTP Web Server, HTML5 UI (`web/index.html`), and source files. | `.zip` | ~49 KB |
 
 ---
 
-### 📖 Simple Guide: How to Download & Use
+## 📖 User Instructions (No Batch Files Required)
 
-#### 🌟 1. For Complete PC & Web Users (`WiFili-Messenger-Complete-Source-And-Binaries.zip`):
-1. Click **`[📥 Download Complete Application Suite (.zip)]`** above.
-2. Extract the ZIP folder on your computer.
-3. **To install on Windows**: Double-click **`WiFili-Messenger-Windows-Installer.bat`** (automatically creates a Desktop Shortcut).
-4. **To install on Linux**: Run `./install-linux.sh` in terminal.
-5. **To run Web Edition**: Double-click **`1-Click-Start-Web-Browser-App.bat`** (Windows) or run `./run-web.sh` (Linux).
-
-#### 📱 2. For Android Smartphone Users (`.apk`):
-1. Click **`[📥 Download Android App (.apk)]`** on your phone.
-2. Open the `.apk` file, allow *"Install unknown apps"*, and tap **Install**.
-3. Launch **WiFili Messenger** and tap **`⚡ Scan LAN Users`** (or **`+ IP`**) to start communicating!
+### 📱 1. Android Smartphone App
+1. Download [WiFili-Messenger-Android.apk](https://github.com/MohsinTahir4/WiFili-Messenger/raw/main/releases/WiFili-Messenger-Android.apk) on your phone.
+2. Tap the APK file, allow installation from unknown sources, and tap **Install**.
+3. Open **WiFili Messenger**, enter your display name, and tap **Connect**.
+4. Both phones must be connected to the same Wi-Fi router or Mobile Hotspot. Tap **🔍 Search** or **+ IP** to connect and chat!
 
 ---
 
-## 📱 Android App Guide
+## 💻 Windows & Linux Desktop App Guide (Source & Binary Complete)
 
-### Overview & Interface Design
-The **WiFili Android App** features a modern WhatsApp/Telegram-style user interface built for high-speed offline local Wi-Fi communication.
+### 📦 Binaries
+- **Pre-built Binary**: [`WiFili-Messenger-Desktop.jar`](WiFili-Messenger-Desktop.jar) is fully compiled and ready to execute.
+- **Run via Command Line**:
+  ```bash
+  java -jar WiFili-Messenger-Desktop.jar
+  ```
 
-| Feature | Description |
-| :--- | :--- |
-| **💬 Offline Chat** | Instant peer-to-peer messaging with built-in emoji selection. |
-| **📄 File Sharing** | Send photos, videos, audio notes, and documents (PDF, DOCX, ZIP) with **live percentage progress bars (`0%-100%`)**. |
-| **📞 Audio Calling** | Low-latency 16kHz PCM audio calls over UDP with Loudspeaker & Earpiece toggle. |
-| **🎥 Video Calling** | Upright portrait video calling with front/back camera switching and local picture-in-picture preview. |
-| **🎬 Video Player** | In-app video player to preview received videos directly. |
-
----
-
-## 💻 Windows & Linux Desktop App Guide
-
-### Overview & Interface Design
-The **WiFili Desktop App** is a native Java Swing application (`:desktop` module) styled in a sleek dark slate theme that matches the web browser edition.
-
-| Feature | Description |
-| :--- | :--- |
-| **🔍 Search & Discovery** | Real-time LAN user search sidebar displaying online status badges (`🟢 Online`) and `+ IP` manual connection. |
-| **💬 PC Messaging** | Full desktop keyboard chat with custom emoji picker and file attachment dialogs. |
-| **📞 Desktop Calls** | Complete audio & video call modal windows with live video preview, mute microphone, and hangup buttons. |
+### 🛠️ Source Code
+- **Source Location**: [`desktop/src/main/java/com/example/lanchat/desktop/`](desktop/src/main/java/com/example/lanchat/desktop/)
+- **Build from Source via Gradle**:
+  ```bash
+  ./gradlew :desktop:run
+  ```
+  Or build the executable JAR:
+  ```bash
+  ./gradlew :desktop:assemble
+  ```
 
 ---
 
-## 🌐 Web Browser Edition Guide
+## 🌐 Web Browser Edition Guide (Source & Binary Complete)
 
-### Overview & Interface Design
-The **WiFili Web Edition** runs locally in **Chrome, Edge, Firefox, or Safari** via an embedded HTTP Web Server running on port `8080`.
+### 📦 Binaries
+- The Web Edition runs via an embedded HTTP server ([WebServer.java](desktop/src/main/java/com/example/lanchat/desktop/WebServer.java)) that serves the modern HTML5 interface ([web/index.html](desktop/src/main/java/com/example/lanchat/desktop/resources/web/index.html)) on port `8080`.
+- **Run via Desktop JAR (which includes the Web Server)**:
+  ```bash
+  java -jar WiFili-Messenger-Desktop.jar
+  ```
+  Then open **`http://localhost:8080`** or **`http://<your-pc-ip>:8080`** in Chrome, Edge, Firefox, or Safari!
 
-| Feature | Description |
-| :--- | :--- |
-| **⚡ Zero Installation** | Runs instantly inside any web browser without installing additional software. |
-| **🎨 Dark & Light Theme** | Toggle between dark and light modes effortlessly. |
-| **🔄 Live Peer Polling** | Automatically polls `/api/peers` every 2 seconds to list online Wi-Fi users. |
+### 🛠️ Source Code
+- **HTML5 Web UI**: [`desktop/src/main/java/com/example/lanchat/desktop/resources/web/index.html`](desktop/src/main/java/com/example/lanchat/desktop/resources/web/index.html)
+- **HTTP Server Source**: [`desktop/src/main/java/com/example/lanchat/desktop/WebServer.java`](desktop/src/main/java/com/example/lanchat/desktop/WebServer.java)
 
 ---
 
@@ -100,7 +90,7 @@ graph TD
 | **📞 Audio Calling** | Low-latency 16kHz PCM audio calls over UDP with Loudspeaker & Earpiece toggle. |
 | **🎥 Video Calling** | Upright portrait video calling with front/back camera switching and local picture-in-picture preview. |
 | **💻 Desktop App (Windows & Linux)** | Native Java Swing GUI app (`:desktop` module) matching the web design. |
-| **🌐 Web Browser Edition** | HTML5 Web App ([web/index.html](web/index.html)) powered by an embedded HTTP Web Server. |
+| **🌐 Web Browser Edition** | HTML5 Web App served by embedded HTTP Server on port `8080`. |
 | **🔧 Connection Diagnostics** | Active IP status detection, network discovery scan, and step-by-step troubleshooting guides. |
 
 ---
@@ -114,57 +104,6 @@ graph TD
 | **UDP Stream** | `45457` | Non-blocking 16kHz PCM Audio Calling |
 | **UDP Stream** | `45458` | YUV JPEG Video Frame Calling |
 | **HTTP Server** | `8080` | Embedded Web Server for Chrome/Edge access |
-
----
-
-## 📶 How to Increase Wi-Fi Range with a Good Router
-
-To get maximum range and coverage for WiFili Messenger across large homes, offices, or outdoor areas:
-
-```mermaid
-graph LR
-    Sub1["📡 Central Router Location<br>(Elevated 2m+)"] --> Coverage1["🟢 2.4 GHz Band<br>(Long Range / Through Walls)"]
-    Sub1 --> Coverage2["⚡ 5.0 GHz Band<br>(Ultra High Speed)"]
-    Sub1 --> Mesh["📶 Wi-Fi Mesh Node<br>(TP-Link Deco / Netgear Orbi)"]
-```
-
-1. **Optimal Router Placement**: Place your Wi-Fi router in a central, elevated position (at least 1.5–2 meters high) away from thick concrete walls and metal objects.
-2. **Wi-Fi Band Selection**: Use **2.4 GHz** for long range through walls, and **5.0 GHz** for ultra-fast video calling and large file transfers.
-3. **Mesh Systems**: Use Mesh Wi-Fi routers (TP-Link Deco, Netgear Orbi, or ASUS Mesh) for seamless multi-story coverage.
-4. **Mobile Hotspot**: Turn on Mobile Hotspot on one phone when outdoors; all other phones and laptops connect directly.
-
----
-
-## 🚀 How to Build & Run
-
-### 1. Android App
-Build and install via Android Studio or Terminal:
-```bash
-./gradlew :app:assembleDebug
-```
-
-### 2. Desktop App (Windows & Linux)
-- **Windows**: Double-click `run-desktop.bat` or run:
-  ```cmd
-  run-desktop.bat
-  ```
-- **Linux**:
-  ```bash
-  chmod +x run-desktop.sh
-  ./run-desktop.sh
-  ```
-
-### 3. Web App Edition (Chrome / Edge / Firefox)
-- **Windows**: Double-click `run-web.bat` or run:
-  ```cmd
-  run-web.bat
-  ```
-- **Linux**:
-  ```bash
-  chmod +x run-web.sh
-  ./run-web.sh
-  ```
-Open `http://localhost:8080` or `http://<your-ip>:8080` in Chrome/Edge!
 
 ---
 
