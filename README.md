@@ -120,15 +120,15 @@ The Web Edition includes a pre-compiled **Web Server Binary** (`WiFili-WebServer
 
 ---
 
-## ☕ Support & Donations (Coinbase & Binance)
+## ☕ Support & Donations (Binance)
 
-If you find **WiFili Messenger** helpful for off-grid or local communications, you can donate via Coinbase or Binance!
+If you find **WiFili Messenger** helpful for off-grid or local communications, you can support this open-source project by donating via Binance!
 
-[![Coinbase](https://img.shields.io/badge/Donate-Coinbase-0052FF?style=for-the-badge&logo=coinbase&logoColor=white)](https://www.coinbase.com)
-[![Binance](https://img.shields.io/badge/Donate-Binance-F0B90B?style=for-the-badge&logo=binance&logoColor=black)](https://www.binance.com)
+### Donate via Binance App (QR Code)
 
-- **Coinbase (ETH / USDC / BTC)**: `0xYourCoinbaseWalletAddressHere`
-- **Binance (USDT / BNB / SOL)**: `YourBinanceDepositAddressHere`
+<img src="https://storage.googleapis.com/gemini-android-studio-images/binance_qr.jpg" alt="Binance QR Code" width="300" />
+
+**Binance Pay ID**: `Mohsin Tahir12`
 
 ---
 
