@@ -126,7 +126,9 @@ If you find **WiFili Messenger** helpful for off-grid or local communications, y
 
 ### Donate via Binance App
 
-You can send your support directly using my Binance Pay ID:
+You can send your support directly using my Binance Pay ID or by scanning the QR code below:
+
+<img src="assets/binance_qr.jpg" alt="Binance QR Code" width="300" />
 
 **Binance Pay ID**: `Mohsin Tahir12`
 
