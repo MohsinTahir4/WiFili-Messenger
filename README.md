@@ -124,15 +124,17 @@ The Web Edition includes a pre-compiled **Web Server Binary** (`WiFili-WebServer
 
 If you find **WiFili Messenger** helpful for off-grid or local communications, you can support this open-source project by donating via Binance!
 
-### Donate via Binance App
+[![Binance](https://img.shields.io/badge/Donate-Binance_Pay-F0B90B?style=for-the-badge&logo=binance&logoColor=black)](https://www.binance.com)
+
+### 💛 Donate via Binance App
 
 You can send your support directly using my Binance Pay ID or by scanning the QR code below:
 
-<img src="assets/binance_qr.jpg" alt="Binance QR Code" width="300" />
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=Mohsin%20Tahir12" alt="Binance Pay QR Code" width="220" />
 
 **Binance Pay ID**: `Mohsin Tahir12`
 
-*(Open your Binance App -> Go to Pay -> Send -> Select Pay ID and enter `Mohsin Tahir12`)*
+*(Open your Binance App ➔ Go to Pay ➔ Send ➔ Scan QR Code or select Pay ID and enter `Mohsin Tahir12`)*
 
 ---
 
