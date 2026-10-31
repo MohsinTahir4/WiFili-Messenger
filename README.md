@@ -71,17 +71,22 @@ graph LR
 
 ---
 
-## 🌐 Web Browser Edition Guide (Source & Binary Complete)
+## 🌐 Web Browser Edition Guide (Java Required)
 
-### 📦 Binaries
-- The Web Edition includes the pre-compiled **Web Server Binary** (`WiFili-WebServer.jar`) and the modern HTML5 web client.
-- **How to Use Binary**:
-  1. Download the Complete Source & Binaries ZIP (~45.4 MB).
-  2. Run the server binary:
-     ```bash
-     java -jar web/build/libs/WiFili-WebServer.jar
-     ```
-  3. Open your browser and navigate to **`http://localhost:8080`** (or your PC's local Wi-Fi IP address `http://192.168.x.x:8080`).
+### 📦 Setup & Run Instructions
+The Web Edition includes a pre-compiled **Web Server Binary** (`WiFili-WebServer.jar`) which serves the modern HTML5 web client directly from your computer to any browser.
+
+**Prerequisites**: You must have **Java 17 or higher** installed on your computer (Windows, macOS, or Linux).
+
+1. Download the **Web Edition Complete (.zip)** from the downloads section above.
+2. Extract the ZIP folder on your computer.
+3. Open a Terminal (macOS/Linux) or Command Prompt (Windows) inside the extracted folder.
+4. Run the server using Java:
+   ```bash
+   java -jar web/build/libs/WiFili-WebServer.jar
+   ```
+5. Once running, open your favorite web browser (Chrome, Edge, Safari, Firefox) and navigate to **`http://localhost:8080`**.
+   *Note: Other devices connected to your Wi-Fi or Hotspot can also access this Web Edition by entering your computer's local IP address (e.g., `http://192.168.1.100:8080`).*
 
 ### 🛠️ Source Code
 - **Full Web Server Source**: [`web/src/main/java/com/example/lanchat/web/WebServer.java`](web/src/main/java/com/example/lanchat/web/WebServer.java)
